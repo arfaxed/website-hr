@@ -3,1074 +3,1168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright World HR Consultancies Co.</title>
+    <title>Bright World HR Consultancies Co. - Professional HR Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #f8f8f8;
+            --accent-color: #333333;
         }
         
         body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--primary-color);
+            background-color: #ffffff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://bunny-wp-pullzone-3xue3q6yzy.b-cdn.net/wp-content/uploads/2024/10/HR-Business-Partner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+        .section {
+            padding: 80px 0;
+            scroll-margin-top: 80px;
         }
         
-        .service-card {
-            transition: all 0.4s ease;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 3px solid #3b82f6;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-icon {
-            height: 80px;
-            width: 80px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: #f0f9ff;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            background-color: #dbeafe;
-            transform: scale(1.1);
-        }
-        
-        .navlink {
+        .section-title {
             position: relative;
-            transition: all 0.3s ease;
+            margin-bottom: 50px;
         }
         
-        .navlink::after {
+        .section-title:after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
+            bottom: -15px;
             left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        
-        .navlink:hover {
-            color: #2563eb;
-        }
-        
-        .navlink:hover::after {
-            width: 100%;
-        }
-        
-        .custom-shadow {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
         
         .btn-primary {
-            background-color: #3b82f6;
+            background-color: var(--primary-color);
             color: white;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 0;
             transition: all 0.3s ease;
-            display: inline-block;
-            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
         }
         
         .btn-primary:hover {
-            background-color: #2563eb;
+            background-color: var(--accent-color);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .btn-secondary {
+        .btn-outline {
             background-color: transparent;
-            color: #3b82f6;
-            border: 2px solid #3b82f6;
-            padding: 12px 26px;
-            border-radius: 6px;
-            font-weight: 600;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 28px;
+            border-radius: 0;
             transition: all 0.3s ease;
-            display: inline-block;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
         }
         
-        .btn-secondary:hover {
-            background-color: #3b82f6;
+        .btn-outline:hover {
+            background-color: var(--primary-color);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        form input, form textarea {
-            width: 100%;
-            padding: 14px 16px;
-            margin-bottom: 18px;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            font-size: 15px;
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
             transition: all 0.3s ease;
-            background-color: #f9fafb;
         }
         
-        form input:focus, form textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        .navbar.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-item {
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            height: 100%;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0f0f0;
             background-color: white;
         }
         
-        .animate-bounce {
-            animation: bounce 2s infinite;
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
         
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
-        .contact-info i {
-            width: 24px;
-            text-align: center;
-            margin-right: 12px;
-            color: #3b82f6;
-        }
-        
-        .stats-item {
+        .team-member {
+            margin-bottom: 30px;
             position: relative;
-            border-radius: 10px;
             overflow: hidden;
-            z-index: 1;
         }
         
-        .stats-item::before {
-            content: '';
-            position: absolute;
+        .team-member img {
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+        
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            border-top: none;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 0;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        .job-listing {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .job-listing:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+        
+        .testimonial {
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            filter: grayscale(100%);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .counter-box {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .counter-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #3b82f6;
-            opacity: 0.05;
-            z-index: -1;
+            background-color: var(--primary-color);
+            z-index: 1000;
+            padding: 50px 20px;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
         }
         
-        .testimonial-card {
-            transition: all 0.3s ease;
+        .mobile-menu.open {
+            transform: translateX(0);
         }
         
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .quote-icon {
-            font-size: 48px;
-            color: rgba(59, 130, 246, 0.15);
+        .mobile-menu-close {
             position: absolute;
             top: 20px;
             right: 20px;
-        }
-        
-        .footer-link {
-            transition: all 0.3s ease;
-        }
-        
-        .footer-link:hover {
-            transform: translateX(5px);
-        }
-        
-        .section-heading {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-        
-        .scroll-indicator i {
-            font-size: 24px;
             color: white;
-            animation: bounce 2s infinite;
+            font-size: 24px;
         }
         
-        .active-nav {
-            color: #2563eb;
+        .mobile-nav-link {
+            display: block;
+            color: white;
+            font-size: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .active-nav::after {
-            width: 100%;
-        }
-        
-        .section-divider {
-            height: 5px;
-            width: 80px;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            margin: 0 auto;
-            border-radius: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-section {
-                height: auto;
-                min-height: 100vh;
-                padding: 120px 0 80px;
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
             }
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
+            
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+            
+            .service-item, .team-member, .job-listing {
+                margin-bottom: 30px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 100px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300" id="header">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://media-hosting.imagekit.io/bb3034046f6440ea/DR%20PEN%20A11%20(29).png?Expires=1841817148&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=igAF3Qjrg~P1IqC2ehZ70~mxfm62jk1xfhsnvgp4~JHuADRc6yEjBj5FCy0XtoDOiOyOhE41dwNMwVaoME97le8gHvTTi9u4VzQsEGShm9mwOrHzOIZ1q4Jt9euX--3eFK7hQxNeHYiSiG6PdYj85UKR3FWNkNYlFs6exey2tTLa8ZNWfEa3FxoNBTLg1I0P7W~Ev7CLmXcDQuhGbNtV3aSLp9xqWwearMxm9WLLieRpmxN0PrNfSrGlvxZJOacWAX-mHCM-UncQdmJfL8q27X~0l5rWG~Z6jThRX-23LVTzrbpl7q7QRKvvQvlOiMi93YxVO-kg4rBSFZSXEVtvjg__" alt="Bright World HR Logo" class="h-14 mr-3">
-                <div>
-                    <h1 class="text-xl font-bold text-blue-700">Bright World HR</h1>
-                    <p class="text-sm text-gray-600">Consultancies Co.</p>
-                </div>
-            </div>
+    <!-- Navigation -->
+    <nav class="navbar fixed-top">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#home" class="navbar-brand flex items-center">
+                <img src="https://tinyurl.com/frfphnpe" alt="Bright World HR Consultancies" class="h-16">
+                <span class="ml-3 text-lg font-bold">Bright World HR Consultancies Co.</span>
+            </a>
             
-            <div class="hidden md:block">
-                <nav>
-                    <ul class="flex space-x-10">
-                        <li><a href="#home" class="navlink text-gray-700 hover:text-blue-600 font-medium active-nav">Home</a></li>
-                        <li><a href="#about" class="navlink text-gray-700 hover:text-blue-600 font-medium">About Us</a></li>
-                        <li><a href="#services" class="navlink text-gray-700 hover:text-blue-600 font-medium">Services</a></li>
-                        <li><a href="#testimonials" class="navlink text-gray-700 hover:text-blue-600 font-medium">Testimonials</a></li>
-                        <li><a href="#contact" class="navlink text-gray-700 hover:text-blue-600 font-medium">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div class="md:hidden">
-                <button id="menu-toggle" class="focus:outline-none">
-                    <i class="fas fa-bars text-2xl text-blue-700"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden w-full bg-white border-t border-gray-200">
-            <nav class="container mx-auto px-6 py-4">
-                <ul class="space-y-4">
-                    <li><a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Home</a></li>
-                    <li><a href="#about" class="block text-gray-700 hover:text-blue-600 font-medium py-2">About Us</a></li>
-                    <li><a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Services</a></li>
-                    <li><a href="#testimonials" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Testimonials</a></li>
-                    <li><a href="#contact" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Contact</a></li>
+            <div class="desktop-nav hidden md:block">
+                <ul class="flex">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#job-seekers" class="nav-link">Job Seekers</a></li>
+                    <li><a href="#employers" class="nav-link">Employers</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
+            
+            <div class="menu-toggle md:hidden">
+                <i class="fas fa-bars text-2xl"></i>
+            </div>
         </div>
-    </header>
-
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="mobile-menu-content">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About Us</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#job-seekers" class="mobile-nav-link">Job Seekers</a>
+            <a href="#employers" class="mobile-nav-link">Employers</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+    
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">Empowering Your Workforce for a Brighter Future</h1>
-            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">Strategic HR solutions tailored to your business needs to drive excellence and growth</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="#services" class="btn-primary">Explore Our Services</a>
-                <a href="#contact" class="btn-secondary">Get in Touch</a>
-            </div>
-            
-            <div class="scroll-indicator">
-                <a href="#about" aria-label="Scroll to About section">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
+    <section id="home" class="hero">
+        <div class="container mx-auto px-4">
+            <div class="row">
+                <div class="col-md-7 fade-in">
+                    <h1 class="text-5xl font-bold mb-4">Empowering Global Careers. Trusted HR Solutions.</h1>
+                    <p class="text-lg mb-8">Bright World HR Consultancies Co. is your trusted partner for recruitment, staffing, HR consulting, and visa services. We connect exceptional talent with leading organizations worldwide.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#job-seekers" class="btn-primary">Apply Now</a>
+                        <a href="#employers" class="btn-primary">Hire Talent</a>
+                        <a href="#services" class="btn-outline">Get a Visa</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Stats Section -->
-    <section class="py-10 bg-gray-50">
-        <div class="container mx-auto px-6">
+    
+    <!-- Services Highlights -->
+    <section class="section bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Our Services</h2>
+                <p class="mt-4">Comprehensive HR solutions tailored to your needs</p>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Stat 1 -->
-                <div class="stats-item p-6 bg-white rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl font-bold mb-2" data-count="500">500+</div>
-                    <p class="text-gray-700 font-medium">Successful Placements</p>
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Recruitment & Staffing</h3>
+                    <p>Finding the right talent for permanent, contract, and temporary positions across industries.</p>
                 </div>
                 
-                <!-- Stat 2 -->
-                <div class="stats-item p-6 bg-white rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl font-bold mb-2" data-count="95">95%</div>
-                    <p class="text-gray-700 font-medium">Client Satisfaction</p>
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Visa Services</h3>
+                    <p>Expert guidance and processing for employment, visit, and business visas to the UAE.</p>
                 </div>
                 
-                <!-- Stat 3 -->
-                <div class="stats-item p-6 bg-white rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl font-bold mb-2" data-count="50">50+</div>
-                    <p class="text-gray-700 font-medium">Corporate Partners</p>
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">HR Consulting</h3>
+                    <p>Comprehensive HR solutions from policy development to compliance management and beyond.</p>
                 </div>
                 
-                <!-- Stat 4 -->
-                <div class="stats-item p-6 bg-white rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl font-bold mb-2" data-count="10">10+</div>
-                    <p class="text-gray-700 font-medium">Years Experience</p>
+                <div class="service-item fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">PRO Services</h3>
+                    <p>Professional handling of document processing, attestation, and government relations.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <!-- Stats -->
+    <section class="section bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="counter-box fade-in">
+                    <div class="counter-number">1,500+</div>
+                    <div class="counter-label">Successful Placements</div>
+                </div>
+                
+                <div class="counter-box fade-in">
+                    <div class="counter-number">300+</div>
+                    <div class="counter-label">Corporate Clients</div>
+                </div>
+                
+                <div class="counter-box fade-in">
+                    <div class="counter-number">98%</div>
+                    <div class="counter-label">Client Satisfaction</div>
+                </div>
+                
+                <div class="counter-box fade-in">
+                    <div class="counter-number">10+</div>
+                    <div class="counter-label">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Contact Form -->
+    <section class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold mb-6">Have a Question?</h2>
+                    <p class="mb-8">Fill out this form and our team will get back to you within 24 hours.</p>
+                    
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" class="w-full form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" class="w-full form-control" placeholder="Your Email">
+                        </div>
+                        <div class="mb-4">
+                            <input type="tel" class="w-full form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="mb-4">
+                            <select class="w-full form-control">
+                                <option selected disabled>Select Service</option>
+                                <option>Recruitment</option>
+                                <option>Visa Services</option>
+                                <option>HR Consulting</option>
+                                <option>PRO Services</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <textarea rows="4" class="w-full form-control" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1000&q=80" alt="Office" class="w-full h-auto rounded shadow-lg filter grayscale">
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- About Us Section -->
-    <section id="about" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Us</h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">
-                    At Bright World HR, we're dedicated to transforming businesses through strategic human resource solutions.
-                </p>
-            </div>
-            
-            <div class="flex flex-wrap items-center">
-                <div class="w-full lg:w-1/2 mb-10 lg:mb-0 fade-in">
-                    <img src="https://www.tcgco.com/wp-content/uploads/2023/10/blog-photos-15.jpg" alt="HR Team Meeting" class="rounded-lg shadow-xl mx-auto w-full max-w-md object-cover h-auto">
+    <section id="about" class="section">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team" class="w-full h-auto rounded shadow-lg filter grayscale">
                 </div>
                 
-                <div class="w-full lg:w-1/2 lg:pl-16 fade-in">
-                    <h3 class="text-2xl font-bold text-blue-700 mb-4">Our Mission</h3>
-                    <p class="text-gray-700 mb-8">
-                        To empower businesses through strategic human resource solutions that foster growth, enhance workplace culture, and maximize employee potential.
-                    </p>
+                <div class="fade-in">
+                    <h2 class="section-title text-3xl font-bold">About Bright World HR Consultancies</h2>
+                    <p class="mb-6">Founded with a vision to transform the HR landscape, Bright World HR Consultancies Co. has grown to become a trusted name in recruitment, staffing, HR consulting, and visa services across the UAE and beyond.</p>
                     
-                    <h3 class="text-2xl font-bold text-blue-700 mb-4">Our Vision</h3>
-                    <p class="text-gray-700 mb-8">
-                        To be the leading HR consultancy in the UAE, recognized for our innovative approach, personalized services, and measurable impact on organizational success.
-                    </p>
+                    <p class="mb-6">Our team of experienced professionals brings decades of combined expertise in human resources, recruitment, immigration, and business operations. We understand the unique challenges faced by both employers and job seekers in today's dynamic market.</p>
                     
-                    <h3 class="text-2xl font-bold text-blue-700 mb-4">Our Values</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mr-4 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <i class="fas fa-check text-blue-600"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900 mb-1">Excellence</h4>
-                                <p class="text-gray-700 text-sm">In service delivery and client satisfaction</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mr-4 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <i class="fas fa-shield-alt text-blue-600"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900 mb-1">Integrity</h4>
-                                <p class="text-gray-700 text-sm">Transparency in all our dealings</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mr-4 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <i class="fas fa-lightbulb text-blue-600"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900 mb-1">Innovation</h4>
-                                <p class="text-gray-700 text-sm">Adaptability to changing business landscapes</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mr-4 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <i class="fas fa-users text-blue-600"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-900 mb-1">Diversity</h4>
-                                <p class="text-gray-700 text-sm">Inclusion across all operations</p>
-                            </div>
+                    <h3 class="text-xl font-bold mb-4">Our Mission</h3>
+                    <p class="mb-6">To deliver exceptional HR solutions that empower organizations and individuals to achieve their fullest potential through ethical practices, industry expertise, and personalized service.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">Our Values</h3>
+                    <ul class="list-disc pl-5 mb-6">
+                        <li class="mb-2">Excellence in every interaction</li>
+                        <li class="mb-2">Integrity and transparency</li>
+                        <li class="mb-2">Client-centric approach</li>
+                        <li class="mb-2">Innovation and continuous improvement</li>
+                        <li class="mb-2">Diversity and inclusion</li>
+                    </ul>
+                    
+                    <a href="#services" class="btn-primary">Explore Our Services</a>
+                </div>
+            </div>
+            
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-12">Industries We Serve</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-building"></i></div>
+                        <p>Corporate</p>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-laptop-code"></i></div>
+                        <p>Technology</p>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-hospital"></i></div>
+                        <p>Healthcare</p>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-industry"></i></div>
+                        <p>Manufacturing</p>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-shopping-cart"></i></div>
+                        <p>Retail</p>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl mb-4"><i class="fas fa-hotel"></i></div>
+                        <p>Hospitality</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leadership Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-12">Our Leadership Team</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="team-member fade-in">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
+                        <div class="team-info">
+                            <h4 class="font-bold text-xl">Ahmed Al Mansouri</h4>
+                            <p class="text-gray-600">Founder & CEO</p>
                         </div>
                     </div>
                     
-                    <div class="mt-10">
-                        <a href="#contact" class="btn-primary">Partner With Us</a>
+                    <div class="team-member fade-in">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
+                        <div class="team-info">
+                            <h4 class="font-bold text-xl">Priya Sharma</h4>
+                            <p class="text-gray-600">Director of Recruitment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member fade-in">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
+                        <div class="team-info">
+                            <h4 class="font-bold text-xl">Michael Chen</h4>
+                            <p class="text-gray-600">Head of Visa Services</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
-                    We offer comprehensive HR solutions tailored to your specific business needs, helping you optimize your workforce and drive organizational success.
-                </p>
+    <section id="services" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Our Comprehensive Services</h2>
+            <p class="text-center mb-16">Tailored solutions to meet your HR and immigration needs</p>
+            
+            <!-- Recruitment & Staffing -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                <div class="fade-in order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-6">Recruitment & Staffing</h3>
+                    <p class="mb-4">Our expert recruiters connect exceptional talent with leading organizations across industries. We specialize in:</p>
+                    <ul class="list-disc pl-5 mb-6">
+                        <li class="mb-2">Executive Search</li>
+                        <li class="mb-2">Permanent Placement</li>
+                        <li class="mb-2">Contract Staffing</li>
+                        <li class="mb-2">Temporary Solutions</li>
+                        <li class="mb-2">Volume Hiring</li>
+                    </ul>
+                    <p class="mb-6">With our extensive network and industry expertise, we identify candidates who not only match the required skills but also align with your company culture and values.</p>
+                    <a href="#employers" class="btn-primary">Hire Top Talent</a>
+                </div>
+                <div class="fade-in order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Recruitment" class="w-full h-auto rounded shadow-lg filter grayscale">
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://cdn1.iconfinder.com/data/icons/talent-management-16/512/SourcingPersonnel-talentacquisition-hr-humanresourcemanagement-job-recruitment-search-sourcing-512.png" alt="Recruitment Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Strategic Recruitment</h3>
-                    <p class="text-gray-600 mb-6">
-                        Streamline your hiring process with our data-driven recruitment services. We help you find the right talent for your organization, from entry-level positions to executive roles.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+            <!-- Visa Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1557070384-825851c3f4f6?auto=format&fit=crop&w=1000&q=80" alt="Visa Services" class="w-full h-auto rounded shadow-lg filter grayscale">
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://cdn4.iconfinder.com/data/icons/hr-recruitment-management/400/SET-05-512.png" alt="Outsourcing Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">HR Outsourcing</h3>
-                    <p class="text-gray-600 mb-6">
-                        Focus on your core business while we handle your HR functions. Our outsourcing solutions include payroll management, benefits administration, and compliance monitoring.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Visit & Employment Visa Consultancy</h3>
+                    <p class="mb-4">Navigate the complex visa process with our expert guidance. Our visa services include:</p>
+                    <ul class="list-disc pl-5 mb-6">
+                        <li class="mb-2">Employment Visa Processing</li>
+                        <li class="mb-2">Visit & Tourist Visas</li>
+                        <li class="mb-2">Family Sponsorship</li>
+                        <li class="mb-2">Investor Visas</li>
+                        <li class="mb-2">Visa Renewals & Cancellations</li>
+                    </ul>
+                    <p class="mb-6">We ensure a smooth, hassle-free visa application process with our thorough understanding of UAE immigration requirements and procedures.</p>
+                    <a href="#contact" class="btn-primary">Get Visa Assistance</a>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://www.shutterstock.com/image-vector/talent-acquisition-human-resources-icon-260nw-2008547672.jpg" alt="Talent Acquisition Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Talent Acquisition</h3>
-                    <p class="text-gray-600 mb-6">
-                        Develop strategic approaches to attract top talent. Our talent acquisition services include employer branding, candidate experience enhancement, and recruitment marketing.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+            </div>
+            
+            <!-- HR Consulting -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                <div class="fade-in order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-6">HR & Compliance Solutions</h3>
+                    <p class="mb-4">Transform your HR operations with our comprehensive consulting services:</p>
+                    <ul class="list-disc pl-5 mb-6">
+                        <li class="mb-2">HR Policy Development</li>
+                        <li class="mb-2">Compliance Management</li>
+                        <li class="mb-2">Performance Management Systems</li>
+                        <li class="mb-2">Employee Relations</li>
+                        <li class="mb-2">HR Audits & Assessments</li>
+                    </ul>
+                    <p class="mb-6">Our consultants bring decades of experience to help optimize your human resources function, ensuring compliance while fostering employee engagement and productivity.</p>
+                    <a href="#contact" class="btn-primary">Consult With Experts</a>
                 </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://thumbs.dreamstime.com/b/hr-solutions-search-employees-job-recruitment-agency-icon-human-resources-consider-candidate-applicant-sign-selection-156914903.jpg" alt="Staffing Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Flexible Staffing</h3>
-                    <p class="text-gray-600 mb-6">
-                        Meet your temporary, contract, or permanent staffing needs with our flexible staffing solutions. We provide qualified candidates who match your specific requirements.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                <div class="fade-in order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="HR Consulting" class="w-full h-auto rounded shadow-lg filter grayscale">
                 </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://c8.alamy.com/comp/3ACBYW6/human-resources-icons-set-recruitment-employee-management-hr-analytics-3ACBYW6.jpg" alt="HR Analytics Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">HR Analytics</h3>
-                    <p class="text-gray-600 mb-6">
-                        Make data-driven decisions with our HR analytics services. We help you gather, analyze, and interpret workforce data to optimize your HR strategies and improve performance.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+            </div>
+            
+            <!-- PRO Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1584942382498-8de23d7fa64e?auto=format&fit=crop&w=1000&q=80" alt="PRO Services" class="w-full h-auto rounded shadow-lg filter grayscale">
                 </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-lg overflow-hidden custom-shadow p-8 text-center fade-in">
-                    <div class="service-icon mb-6">
-                        <img src="https://www.shutterstock.com/image-vector/employee-recruitment-linear-style-icon-260nw-2472118775.jpg" alt="Training & Development Icon" class="h-10 w-10">
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Training & Development</h3>
-                    <p class="text-gray-600 mb-6">
-                        Invest in your employees' growth with our comprehensive training and development programs. We design customized solutions to enhance skills and boost productivity.
-                    </p>
-                    <div class="flex justify-center">
-                        <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">PRO & Document Attestation Services</h3>
+                    <p class="mb-4">Navigate government procedures efficiently with our professional PRO services:</p>
+                    <ul class="list-disc pl-5 mb-6">
+                        <li class="mb-2">Document Authentication & Attestation</li>
+                        <li class="mb-2">Government Transactions</li>
+                        <li class="mb-2">Company Formation Assistance</li>
+                        <li class="mb-2">Trade License Processing</li>
+                        <li class="mb-2">Legal Translation Services</li>
+                    </ul>
+                    <p class="mb-6">Our experienced PRO team handles all government-related procedures, saving you time and ensuring compliance with UAE regulations.</p>
+                    <a href="#contact" class="btn-primary">Request PRO Services</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose Bright World HR</h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
-                    We bring expertise, innovation, and a personalized approach to every client relationship.
-                </p>
-            </div>
+    
+    <!-- Job Seekers Section -->
+    <section id="job-seekers" class="section">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">For Job Seekers</h2>
+            <p class="text-center mb-16">Take the next step in your career journey</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">How We Help You</h3>
+                    <p class="mb-6">At Bright World HR Consultancies, we're committed to connecting talented professionals with opportunities that match their skills, aspirations, and potential. Our approach is personalized to your unique career goals.</p>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">Our Process</h4>
+                        <ul class="list-decimal pl-5 mb-6">
+                            <li class="mb-3">Resume Submission - Upload your CV through our platform</li>
+                            <li class="mb-3">Initial Assessment - Our recruiters review your qualifications</li>
+                            <li class="mb-3">Career Consultation - Discuss your goals and preferences</li>
+                            <li class="mb-3">Interview Preparation - Receive guidance for successful interviews</li>
+                            <li class="mb-3">Job Matching - Get connected with suitable opportunities</li>
+                            <li class="mb-3">Offer Negotiation - Benefit from our expertise in securing the best package</li>
+                            <li class="mb-3">Onboarding Support - Assistance throughout the transition</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Industry Expertise</h3>
-                    <p class="text-gray-600">
-                        Our consultants bring years of specialized experience across various industries, ensuring solutions that are relevant to your specific sector.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-cogs text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Customized Approach</h3>
-                    <p class="text-gray-600">
-                        We don't believe in one-size-fits-all solutions. Each engagement begins with a thorough assessment of your unique business needs.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-handshake text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Long-term Partnership</h3>
-                    <p class="text-gray-600">
-                        We're committed to building lasting relationships with our clients, evolving our services as your business grows and changes.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-globe text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Global Network</h3>
-                    <p class="text-gray-600">
-                        Our extensive international connections allow us to source talent from around the world, bringing diverse perspectives to your organization.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-rocket text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Innovative Solutions</h3>
-                    <p class="text-gray-600">
-                        We stay ahead of industry trends and technological advancements to bring you cutting-edge HR strategies and tools.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-pie text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Measurable Results</h3>
-                    <p class="text-gray-600">
-                        We define clear KPIs and regularly track progress, ensuring that our services deliver tangible value to your business.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
-                    See what our clients have to say about their experience working with our team.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md relative fade-in">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-blue-700 font-bold text-xl">AH</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Ahmed Hassan</h4>
-                            <p class="text-gray-600 text-sm">CEO, Tech Innovations</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">
-                        "Bright World HR transformed our recruitment process completely. Their strategic approach helped us build a high-performing team that has been instrumental in our growth."
-                    </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">Why Choose Us</h4>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-2">Access to exclusive job opportunities</li>
+                            <li class="mb-2">Personalized career guidance</li>
+                            <li class="mb-2">Visa and relocation assistance</li>
+                            <li class="mb-2">Long-term career support</li>
+                            <li class="mb-2">Industry insights and market knowledge</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md relative fade-in">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-blue-700 font-bold text-xl">SJ</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
-                            <p class="text-gray-600 text-sm">HR Director, Global Retail</p>
-                        </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Current Opportunities</h3>
+                    
+                    <div class="job-listing">
+                        <h4 class="text-xl font-bold">Senior HR Manager</h4>
+                        <p class="text-gray-600 mb-2">Dubai, UAE | Full-time</p>
+                        <p class="mb-4">Leading multinational company seeks an experienced HR Manager to oversee all HR functions and develop strategic initiatives.</p>
+                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
                     </div>
-                    <p class="text-gray-700 mb-4">
-                        "The outsourcing solutions provided by Bright World HR allowed us to focus on our core business while ensuring our HR operations run smoothly. Highly recommended!"
-                    </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    
+                    <div class="job-listing">
+                        <h4 class="text-xl font-bold">Finance Director</h4>
+                        <p class="text-gray-600 mb-2">Abu Dhabi, UAE | Full-time</p>
+                        <p class="mb-4">Established organization looking for a Finance Director to lead financial strategy and operations.</p>
+                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
                     </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md relative fade-in">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-blue-700 font-bold text-xl">RA</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Rashid Al Maktoum</h4>
-                            <p class="text-gray-600 text-sm">Operations Manager, Emirates Group</p>
-                        </div>
+                    
+                    <div class="job-listing">
+                        <h4 class="text-xl font-bold">IT Project Manager</h4>
+                        <p class="text-gray-600 mb-2">Dubai, UAE | Contract</p>
+                        <p class="mb-4">Technology firm seeking an IT Project Manager with experience in implementing enterprise solutions.</p>
+                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
                     </div>
-                    <p class="text-gray-700 mb-4">
-                        "Their talent acquisition strategies helped us secure top-tier candidates in a competitive market. The team at Bright World HR truly understands our industry needs."
-                    </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    
+                    <div class="job-listing">
+                        <h4 class="text-xl font-bold">Marketing Specialist</h4>
+                        <p class="text-gray-600 mb-2">Sharjah, UAE | Full-time</p>
+                        <p class="mb-4">Growing company looking for a Marketing Specialist with digital marketing expertise.</p>
+                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-blue-700 text-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap items-center justify-between">
-                <div class="w-full lg:w-2/3 mb-8 lg:mb-0">
-                    <h2 class="text-3xl font-bold mb-4">Ready to Transform Your HR Operations?</h2>
-                    <p class="text-blue-100 max-w-2xl">
-                        Schedule a free consultation with our team to discuss how we can help you achieve your HR objectives and drive business success.
-                    </p>
-                </div>
-                <div class="w-full lg:w-1/3 text-center lg:text-right">
-                    <a href="#contact" class="inline-block py-4 px-8 bg-white text-blue-700 font-semibold rounded-lg hover:bg-blue-50 transition duration-300 shadow-lg">
-                        Schedule a Consultation
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
-                <div class="section-divider mb-6"></div>
-                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
-                    Have questions or ready to start working with us? Get in touch with our team today.
-                </p>
-            </div>
-            
-            <div class="flex flex-wrap -mx-4">
-                <!-- Contact Info -->
-                <div class="w-full lg:w-1/2 px-4 mb-10 lg:mb-0 fade-in">
-                    <div class="bg-white rounded-lg overflow-hidden custom-shadow p-8 h-full">
-                        <h3 class="text-2xl font-bold text-blue-700 mb-6">Reach Out to Us</h3>
-                        
-                        <div class="contact-info space-y-6 mb-8">
-                            <div class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
-                                <span class="ml-3">315 Dar Al Wuheida Building, Doha Street, Dubai, UAE</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-500"></i>
-                                <span class="ml-3">info@brightworldservices.com</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-500"></i>
-                                <span class="ml-3">arfaxed@brightworldservices.com</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-phone text-blue-500"></i>
-                                <span class="ml-3">04 553 4985</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-mobile-alt text-blue-500"></i>
-                                <span class="ml-3">058 152 4558</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-4">Working Hours</h4>
-                            <div class="grid grid-cols-1 gap-3">
-                                <div class="flex justify-between">
-                                    <span class="text-gray-700">Monday - Friday:</span>
-                                    <span class="font-medium">9:00 AM - 6:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-700">Saturday:</span>
-                                    <span class="font-medium">10:00 AM - 2:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-700">Sunday:</span>
-                                    <span class="font-medium">Closed</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-4">Our Location</h4>
-                            <div class="rounded-lg overflow-hidden h-64">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.0223803392666!2d55.30141281501316!3d25.259220983867977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dc0b3fdb8c7%3A0xee36cd6a4993550c!2sDoha%20St%20-%20Dubai!5e0!3m2!1sen!2sae!4v1651234567890!5m2!1sen!2sae" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="w-full lg:w-1/2 px-4 fade-in">
-                    <div class="bg-white rounded-lg overflow-hidden custom-shadow p-8 h-full">
-                        <h3 class="text-2xl font-bold text-blue-700 mb-6">Send Us a Message</h3>
-                        
-                        <form id="contactForm">
+                    
+                    <a href="#" class="btn-primary mt-6">View All Jobs</a>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6">Submit Your Resume</h3>
+                        <form>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+                                    <input type="text" class="w-full form-control" placeholder="First Name">
                                 </div>
                                 <div>
-                                    <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+                                    <input type="text" class="w-full form-control" placeholder="Last Name">
                                 </div>
                             </div>
-                            
                             <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="Your email" required>
+                                <input type="email" class="w-full form-control" placeholder="Email Address">
                             </div>
-                            
                             <div class="mb-4">
-                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                                <input type="tel" class="w-full form-control" placeholder="Phone Number">
                             </div>
-                            
                             <div class="mb-4">
-                                <label for="company" class="block text-gray-700 font-medium mb-2">Company Name</label>
-                                <input type="text" id="company" name="company" placeholder="Your company name">
+                                <select class="w-full form-control">
+                                    <option selected disabled>Select Job Category</option>
+                                    <option>Finance & Accounting</option>
+                                    <option>Information Technology</option>
+                                    <option>Human Resources</option>
+                                    <option>Marketing & Sales</option>
+                                    <option>Administration</option>
+                                    <option>Operations</option>
+                                    <option>Other</option>
+                                </select>
                             </div>
-                            
                             <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="Message subject" required>
+                                <div class="form-control p-4 flex items-center justify-between cursor-pointer">
+                                    <span>Upload Your Resume</span>
+                                    <i class="fas fa-upload"></i>
+                                </div>
                             </div>
-                            
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                            <div class="mb-4">
+                                <textarea rows="4" class="w-full form-control" placeholder="Additional Information"></textarea>
                             </div>
-                            
-                            <div class="mb-6">
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" required>
-                                    <span class="ml-2 text-gray-700 text-sm">I agree to the terms and privacy policy</span>
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="btn-primary w-full">Send Message</button>
+                            <button type="submit" class="btn-primary">Submit Application</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-16 pb-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap">
-                <!-- Company Info -->
-                <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                    <div class="flex items-center mb-6">
-                        <img src="https://media-hosting.imagekit.io/bb3034046f6440ea/DR%20PEN%20A11%20(29).png?Expires=1841817148&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=igAF3Qjrg~P1IqC2ehZ70~mxfm62jk1xfhsnvgp4~JHuADRc6yEjBj5FCy0XtoDOiOyOhE41dwNMwVaoME97le8gHvTTi9u4VzQsEGShm9mwOrHzOIZ1q4Jt9euX--3eFK7hQxNeHYiSiG6PdYj85UKR3FWNkNYlFs6exey2tTLa8ZNWfEa3FxoNBTLg1I0P7W~Ev7CLmXcDQuhGbNtV3aSLp9xqWwearMxm9WLLieRpmxN0PrNfSrGlvxZJOacWAX-mHCM-UncQdmJfL8q27X~0l5rWG~Z6jThRX-23LVTzrbpl7q7QRKvvQvlOiMi93YxVO-kg4rBSFZSXEVtvjg__" alt="Bright World HR Logo" class="h-12 mr-3">
-                        <div>
-                            <h3 class="text-xl font-bold">Bright World HR</h3>
-                            <p class="text-sm text-gray-400">Consultancies Co.</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 mb-6">
-                        Your trusted partner for strategic HR solutions in the UAE. We help businesses optimize their workforce and drive organizational success.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 hover:bg-blue-600 hover:text-white transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 hover:bg-blue-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 hover:bg-blue-700 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 hover:bg-gradient-to-r from-purple-500 to-pink-500 hover:text-white transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Services</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Our Services -->
-                <div class="w-full md:w-1/4 mb-10 md:mb-0">
-                    <h3 class="text-lg font-semibold mb-6">Our Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Strategic Recruitment</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> HR Outsourcing</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Talent Acquisition</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Flexible Staffing</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> HR Analytics</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors footer-link flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Training & Development</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="w-full md:w-1/4">
-                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
-                            <span class="text-gray-400">315 Dar Al Wuheida Building, Doha Street, Dubai, UAE</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
-                            <span class="text-gray-400">info@brightworldservices.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone text-blue-400 mr-3"></i>
-                            <span class="text-gray-400">04 553 4985</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-mobile-alt text-blue-400 mr-3"></i>
-                            <span class="text-gray-400">058 152 4558</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    
+    <!-- Employers Section -->
+    <section id="employers" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">For Employers</h2>
+            <p class="text-center mb-16">Find exceptional talent for your organization</p>
             
-            <div class="border-t border-gray-700 mt-12 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">Copyright © 2025 Bright World HR Consultancies. All rights reserved.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Employers" class="w-full h-auto rounded shadow-lg filter grayscale">
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6">Why Partner With Us</h3>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-3">Access to a curated pool of pre-screened talent</li>
+                            <li class="mb-3">Industry-specific recruitment expertise</li>
+                            <li class="mb-3">Reduced time-to-hire and recruitment costs</li>
+                            <li class="mb-3">Comprehensive visa and PRO service support</li>
+                            <li class="mb-3">Customized HR solutions tailored to your needs</li>
+                            <li class="mb-3">Long-term partnership approach</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Request Talent</h3>
+                    <p class="mb-8">Tell us about your hiring needs, and our recruitment specialists will help you find the perfect candidates for your organization.</p>
+                    
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <input type="text" class="w-full form-control" placeholder="Company Name">
+                            </div>
+                            <div>
+                                <input type="text" class="w-full form-control" placeholder="Your Name">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <input type="email" class="w-full form-control" placeholder="Email Address">
+                            </div>
+                            <div>
+                                <input type="tel" class="w-full form-control" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="w-full form-control" placeholder="Position Title">
+                        </div>
+                        <div class="mb-4">
+                            <select class="w-full form-control">
+                                <option selected disabled>Number of Positions</option>
+                                <option>1</option>
+                                <option>2-5</option>
+                                <option>6-10</option>
+                                <option>11-20</option>
+                                <option>20+</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <select class="w-full form-control">
+                                <option selected disabled>Employment Type</option>
+                                <option>Permanent</option>
+                                <option>Contract</option>
+                                <option>Temporary</option>
+                                <option>Project-based</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <textarea rows="4" class="w-full form-control" placeholder="Job Description & Requirements"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-control p-4 flex items-center justify-between cursor-pointer">
+                                <span>Upload Job Description (optional)</span>
+                                <i class="fas fa-upload"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit Request</button>
+                    </form>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6">Our Recruitment Process</h3>
+                        <ol class="list-decimal pl-5">
+                            <li class="mb-3"><strong>Consultation:</strong> Understanding your requirements and company culture</li>
+                            <li class="mb-3"><strong>Sourcing:</strong> Leveraging our network to identify qualified candidates</li>
+                            <li class="mb-3"><strong>Screening:</strong> Thorough evaluation of candidates' skills and experience</li>
+                            <li class="mb-3"><strong>Presentation:</strong> Shortlisting and presenting the best matches</li>
+                            <li class="mb-3"><strong>Selection:</strong> Supporting the interview and decision process</li>
+                            <li class="mb-3"><strong>Onboarding:</strong> Assisting with visa, relocation, and integration</li>
+                            <li class="mb-3"><strong>Follow-up:</strong> Ensuring satisfaction and addressing any concerns</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Contact Us</h2>
+            <p class="text-center mb-16">Get in touch with our team for any inquiries</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-1 fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold mb-2">Address</p>
+                        <p>315, DAR AL WUHEIDA BUILDING, DOHA STREET, DUBAI – UNITED ARAB EMIRATES</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold mb-2">Phone</p>
+                        <p>0581524558 / 045534985</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold mb-2">Email</p>
+                        <p>arfaxed@brightworldservices.com</p>
+                        <p>info@brightworldservices.com</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold mb-2">Working Hours</p>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM</p>
+                    </div>
+                    
+                    <div class="social-icons mt-8">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2 fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <input type="text" class="w-full form-control" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <input type="email" class="w-full form-control" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <input type="tel" class="w-full form-control" placeholder="Your Phone">
+                            </div>
+                            <div>
+                                <select class="w-full form-control">
+                                    <option selected disabled>Subject</option>
+                                    <option>Recruitment Inquiry</option>
+                                    <option>Visa Services</option>
+                                    <option>HR Consulting</option>
+                                    <option>PRO Services</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <textarea rows="6" class="w-full form-control" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                    
+                    <div class="mt-12 h-80">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.775749767011!2d55.31897257506045!3d25.25729477717329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d31d0c22caf%3A0x9dd6ef4e89f4a397!2sDar%20Al%20Wuheida%20Building%2C%20315%20-%20Doha%20St%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1689341587593!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="https://tinyurl.com/frfphnpe" alt="Bright World HR Consultancies" class="h-16">
+                        <span class="ml-3 text-white font-bold">Bright World HR Consultancies Co.</span>
+                    </div>
+                    <p class="mb-6">Empowering global careers and providing trusted HR solutions since 2012. Your partner for recruitment, visa services, and HR consulting.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#job-seekers">Job Seekers</a></li>
+                        <li><a href="#employers">Employers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Recruitment & Staffing</a></li>
+                        <li><a href="#services">Visa Consultancy</a></li>
+                        <li><a href="#services">HR Solutions</a></li>
+                        <li><a href="#services">PRO Services</a></li>
+                        <li><a href="#services">Document Attestation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Newsletter</h4>
+                    <p class="mb-4">Subscribe to receive updates on job opportunities and visa regulations.</p>
+                    <form>
+                        <div class="mb-4">
+                            <input type="email" class="w-full form-control bg-white bg-opacity-10 border-0 text-white" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="btn-outline text-white border-white">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2023 Bright World HR Consultancies Co. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
-
-    <!-- Back to top button -->
-    <a href="#home" id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg opacity-0 invisible transition-all duration-300 z-50">
-        <i class="fas fa-chevron-up"></i>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/971581524558" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- Scripts -->
+    
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        // Navigation active state
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
         
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                const headerHeight = document.querySelector('header').offsetHeight;
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - headerHeight,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-        
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would normally send this data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you, ${firstName} ${lastName}! Your message has been received. We'll get back to you soon.`);
-            
-            // Reset form
-            this.reset();
-        });
-        
-        // Back to top button visibility
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        // Active navigation indicator
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navlink');
-        
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             let current = '';
-            const headerHeight = document.querySelector('header').offsetHeight;
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 100;
-                const sectionHeight = section.offsetHeight;
-                
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
                     current = section.getAttribute('id');
                 }
             });
             
             navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active-nav');
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
                 }
             });
-        });
-        
-        // Header shadow on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
             
-            if (window.pageYOffset > 50) {
-                header.classList.add('py-2');
-                header.classList.remove('py-4');
+            // Sticky navbar
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
             } else {
-                header.classList.add('py-4');
-                header.classList.remove('py-2');
+                navbar.classList.remove('scrolled');
             }
         });
         
-        // Fade-in animations on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementBottom = element.getBoundingClientRect().bottom;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100 && elementBottom > 0) {
-                        element.classList.add('active');
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Fade-in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeIn = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeIn);
+        window.addEventListener('load', fadeIn);
+        
+        // Form submission (prevent default for demo)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formElements = form.elements;
+                let isValid = true;
+                
+                for (let i = 0; i < formElements.length; i++) {
+                    if (formElements[i].type !== 'submit' && formElements[i].value === '') {
+                        isValid = false;
+                        formElements[i].classList.add('border-red-500');
+                    } else {
+                        formElements[i].classList.remove('border-red-500');
                     }
-                });
-            };
-            
-            // Initial check on load
-            fadeInOnScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
+                }
+                
+                if (isValid) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
         });
     </script>
 </body>
