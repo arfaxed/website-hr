@@ -4,21 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bright World HR Consultancies Co. - Professional HR Solutions</title>
+    <meta name="description" content="Bright World HR Consultancies Co. - Leading HR recruitment, staffing, visa services, and HR consulting in Dubai, UAE. Connect exceptional talent with global opportunities.">
+    <meta name="keywords" content="HR consultancy, recruitment Dubai, visa services UAE, staffing solutions, employment visa, HR consulting, PRO services">
+    <meta name="author" content="Bright World HR Consultancies Co.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brightworldservices.com/">
+    <meta property="og:title" content="Bright World HR Consultancies Co. - Professional HR Solutions">
+    <meta property="og:description" content="Leading HR recruitment, staffing, visa services, and HR consulting in Dubai, UAE.">
+    <meta property="og:image" content="https://tinyurl.com/frfphnpe">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://brightworldservices.com/">
+    <meta property="twitter:title" content="Bright World HR Consultancies Co. - Professional HR Solutions">
+    <meta property="twitter:description" content="Leading HR recruitment, staffing, visa services, and HR consulting in Dubai, UAE.">
+    <meta property="twitter:image" content="https://tinyurl.com/frfphnpe">
+    
+    <link rel="canonical" href="https://brightworldservices.com/">
+    <link rel="icon" type="image/x-icon" href="https://tinyurl.com/frfphnpe">
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-color: #000000;
             --secondary-color: #f8f8f8;
             --accent-color: #333333;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --warning-color: #f59e0b;
+        }
+        
+        * {
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: var(--primary-color);
             background-color: #ffffff;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            line-height: 1.6;
         }
         
         .section {
@@ -35,7 +68,8 @@
             content: '';
             position: absolute;
             bottom: -15px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100px;
             height: 3px;
             background-color: var(--primary-color);
@@ -45,18 +79,37 @@
             background-color: var(--primary-color);
             color: white;
             padding: 12px 30px;
-            border-radius: 0;
+            border-radius: 6px;
             transition: all 0.3s ease;
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-size: 14px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-primary:hover {
             background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
         
         .btn-outline {
@@ -64,26 +117,38 @@
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
             padding: 10px 28px;
-            border-radius: 0;
+            border-radius: 6px;
             transition: all 0.3s ease;
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
         
         .btn-outline:hover {
             background-color: var(--primary-color);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
         
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
             transition: all 0.3s ease;
+            z-index: 100;
         }
         
         .navbar.scrolled {
@@ -97,6 +162,8 @@
             margin: 0 15px;
             position: relative;
             padding: 5px 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
         .nav-link:after {
@@ -115,14 +182,21 @@
             width: 100%;
         }
         
+        .nav-link:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
         .hero {
             height: 100vh;
+            min-height: 600px;
             background-color: var(--secondary-color);
             display: flex;
             align-items: center;
             background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
         
         .service-item {
@@ -130,53 +204,86 @@
             transition: all 0.3s ease;
             border: 1px solid transparent;
             height: 100%;
+            border-radius: 8px;
+            background: white;
         }
         
         .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid #f0f0f0;
-            background-color: white;
         }
         
         .service-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover .service-icon {
+            transform: scale(1.1);
         }
         
         .team-member {
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .team-member img {
             transition: all 0.3s ease;
             filter: grayscale(100%);
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
         }
         
         .team-member:hover img {
             transform: scale(1.05);
+            filter: grayscale(0%);
         }
         
         .team-info {
             padding: 20px;
             text-align: center;
-            border: 1px solid #f0f0f0;
-            border-top: none;
         }
         
         .form-control {
             padding: 12px 15px;
-            border-radius: 0;
+            border-radius: 6px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            width: 100%;
         }
         
         .form-control:focus {
-            box-shadow: none;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
             border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .form-control.error {
+            border-color: var(--error-color);
+            background-color: #fef2f2;
+        }
+        
+        .form-control.success {
+            border-color: var(--success-color);
+            background-color: #f0fdf4;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none;
         }
         
         .job-listing {
@@ -184,6 +291,8 @@
             margin-bottom: 20px;
             border: 1px solid #f0f0f0;
             transition: all 0.3s ease;
+            border-radius: 8px;
+            background: white;
         }
         
         .job-listing:hover {
@@ -196,11 +305,13 @@
             margin-bottom: 30px;
             background-color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            font-size: 16px;
         }
         
         .client-info {
@@ -214,6 +325,7 @@
             border-radius: 50%;
             margin-right: 15px;
             filter: grayscale(100%);
+            object-fit: cover;
         }
         
         .footer {
@@ -234,6 +346,7 @@
         .footer-links a {
             color: #ccc;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .footer-links a:hover {
@@ -252,11 +365,13 @@
             margin-right: 10px;
             color: white;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .social-icons a:hover {
             background-color: white;
             color: var(--primary-color);
+            transform: translateY(-2px);
         }
         
         .whatsapp-btn {
@@ -275,11 +390,25 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             z-index: 999;
             transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
         }
         
         .whatsapp-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
         
         .counter-box {
@@ -288,12 +417,20 @@
             background-color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .counter-number {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
+            color: var(--primary-color);
         }
         
         .counter-label {
@@ -301,11 +438,10 @@
             color: #666;
         }
         
-        /* Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
         .fade-in.visible {
@@ -313,7 +449,42 @@
             transform: translateY(0);
         }
         
-        /* Mobile Menu */
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message {
+            background-color: var(--success-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+        }
+        
+        .error-alert {
+            background-color: var(--error-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+        }
+        
         .mobile-menu {
             display: none;
             position: fixed;
@@ -338,6 +509,8 @@
             right: 20px;
             color: white;
             font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
         }
         
         .mobile-nav-link {
@@ -346,6 +519,86 @@
             font-size: 20px;
             padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover {
+            padding-left: 10px;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type=file] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .file-upload-label:hover {
+            border-color: var(--primary-color);
+            background-color: #f9f9f9;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
         
         @media (max-width: 992px) {
@@ -356,6 +609,7 @@
             .menu-toggle {
                 display: block;
                 cursor: pointer;
+                padding: 10px;
             }
             
             .service-item, .team-member, .job-listing {
@@ -368,668 +622,858 @@
             
             .hero {
                 height: auto;
+                min-height: 70vh;
                 padding: 100px 0;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .counter-number {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                text-align: center;
+            }
+            
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-primary, .btn-outline {
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .scroll-to-top {
+                bottom: 80px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .hero {
+                background-attachment: scroll;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-black text-white p-2 z-50">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar fixed-top">
+    <nav class="navbar fixed-top" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#home" class="navbar-brand flex items-center">
-                <img src="https://tinyurl.com/frfphnpe" alt="Bright World HR Consultancies" class="h-16">
+            <a href="#home" class="navbar-brand flex items-center" aria-label="Bright World HR Consultancies Home">
+                <img src="https://i.ibb.co/m58mFVKd/DR-PEN-A11-52.png" alt="Bright World HR Consultancies Logo" class="h-16" loading="eager">
                 <span class="ml-3 text-lg font-bold">Bright World HR Consultancies Co.</span>
             </a>
             
             <div class="desktop-nav hidden md:block">
-                <ul class="flex">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#job-seekers" class="nav-link">Job Seekers</a></li>
-                    <li><a href="#employers" class="nav-link">Employers</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                <ul class="flex" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link active" role="menuitem" tabindex="0">Home</a></li>
+                    <li role="none"><a href="#about" class="nav-link" role="menuitem" tabindex="0">About Us</a></li>
+                    <li role="none"><a href="#services" class="nav-link" role="menuitem" tabindex="0">Services</a></li>
+                    <li role="none"><a href="#job-seekers" class="nav-link" role="menuitem" tabindex="0">Job Seekers</a></li>
+                    <li role="none"><a href="#employers" class="nav-link" role="menuitem" tabindex="0">Employers</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem" tabindex="0">Contact</a></li>
                 </ul>
             </div>
             
-            <div class="menu-toggle md:hidden">
-                <i class="fas fa-bars text-2xl"></i>
+            <div class="menu-toggle md:hidden" aria-label="Open mobile menu" tabindex="0">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
             </div>
         </div>
     </nav>
     
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-close">
-            <i class="fas fa-times"></i>
+    <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
+        <div class="mobile-menu-close" aria-label="Close mobile menu" tabindex="0">
+            <i class="fas fa-times" aria-hidden="true"></i>
         </div>
-        <div class="mobile-menu-content">
-            <a href="#home" class="mobile-nav-link">Home</a>
-            <a href="#about" class="mobile-nav-link">About Us</a>
-            <a href="#services" class="mobile-nav-link">Services</a>
-            <a href="#job-seekers" class="mobile-nav-link">Job Seekers</a>
-            <a href="#employers" class="mobile-nav-link">Employers</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div class="mobile-menu-content" role="menu">
+            <a href="#home" class="mobile-nav-link" role="menuitem">Home</a>
+            <a href="#about" class="mobile-nav-link" role="menuitem">About Us</a>
+            <a href="#services" class="mobile-nav-link" role="menuitem">Services</a>
+            <a href="#job-seekers" class="mobile-nav-link" role="menuitem">Job Seekers</a>
+            <a href="#employers" class="mobile-nav-link" role="menuitem">Employers</a>
+            <a href="#contact" class="mobile-nav-link" role="menuitem">Contact</a>
         </div>
     </div>
     
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container mx-auto px-4">
-            <div class="row">
-                <div class="col-md-7 fade-in">
-                    <h1 class="text-5xl font-bold mb-4">Empowering Global Careers. Trusted HR Solutions.</h1>
-                    <p class="text-lg mb-8">Bright World HR Consultancies Co. is your trusted partner for recruitment, staffing, HR consulting, and visa services. We connect exceptional talent with leading organizations worldwide.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#job-seekers" class="btn-primary">Apply Now</a>
-                        <a href="#employers" class="btn-primary">Hire Talent</a>
-                        <a href="#services" class="btn-outline">Get a Visa</a>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero" aria-label="Hero section">
+            <div class="container mx-auto px-4">
+                <div class="row">
+                    <div class="md:w-2/3 fade-in">
+                        <h1 class="text-5xl font-bold mb-4">Empowering Global Careers. Trusted HR Solutions.</h1>
+                        <p class="text-lg mb-8">Bright World HR Consultancies Co. is your trusted partner for recruitment, staffing, HR consulting, and visa services. We connect exceptional talent with leading organizations worldwide.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#job-seekers" class="btn-primary" aria-label="Apply for jobs now">Apply Now</a>
+                            <a href="#employers" class="btn-primary" aria-label="Hire talent for your company">Hire Talent</a>
+                            <a href="#services" class="btn-outline" aria-label="Get visa assistance">Get a Visa</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Services Highlights -->
-    <section class="section bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Our Services</h2>
-                <p class="mt-4">Comprehensive HR solutions tailored to your needs</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="service-item fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
+        </section>
+        
+        <!-- Services Highlights -->
+        <section class="section bg-white" aria-label="Our services overview">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold">Our Services</h2>
+                    <p class="mt-4">Comprehensive HR solutions tailored to your needs</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+                    <div class="service-item fade-in" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Recruitment & Staffing</h3>
+                        <p>Finding the right talent for permanent, contract, and temporary positions across industries.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Recruitment & Staffing</h3>
-                    <p>Finding the right talent for permanent, contract, and temporary positions across industries.</p>
-                </div>
-                
-                <div class="service-item fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-passport"></i>
+                    
+                    <div class="service-item fade-in" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Visa Services</h3>
+                        <p>Expert guidance and processing for employment, visit, and business visas to the UAE.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Visa Services</h3>
-                    <p>Expert guidance and processing for employment, visit, and business visas to the UAE.</p>
-                </div>
-                
-                <div class="service-item fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-list"></i>
+                    
+                    <div class="service-item fade-in" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">HR Consulting</h3>
+                        <p>Comprehensive HR solutions from policy development to compliance management and beyond.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">HR Consulting</h3>
-                    <p>Comprehensive HR solutions from policy development to compliance management and beyond.</p>
-                </div>
-                
-                <div class="service-item fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-file-signature"></i>
+                    
+                    <div class="service-item fade-in" role="listitem">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">PRO Services</h3>
+                        <p>Professional handling of document processing, attestation, and government relations.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">PRO Services</h3>
-                    <p>Professional handling of document processing, attestation, and government relations.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Stats -->
-    <section class="section bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="counter-box fade-in">
-                    <div class="counter-number">1,500+</div>
-                    <div class="counter-label">Successful Placements</div>
-                </div>
-                
-                <div class="counter-box fade-in">
-                    <div class="counter-number">300+</div>
-                    <div class="counter-label">Corporate Clients</div>
-                </div>
-                
-                <div class="counter-box fade-in">
-                    <div class="counter-number">98%</div>
-                    <div class="counter-label">Client Satisfaction</div>
-                </div>
-                
-                <div class="counter-box fade-in">
-                    <div class="counter-number">10+</div>
-                    <div class="counter-label">Years of Excellence</div>
+        </section>
+        
+        <!-- Stats -->
+        <section class="section bg-white" aria-label="Company statistics">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+                    <div class="counter-box fade-in" role="listitem">
+                        <div class="counter-number" data-target="1500">0+</div>
+                        <div class="counter-label">Successful Placements</div>
+                    </div>
+                    
+                    <div class="counter-box fade-in" role="listitem">
+                        <div class="counter-number" data-target="300">0+</div>
+                        <div class="counter-label">Corporate Clients</div>
+                    </div>
+                    
+                    <div class="counter-box fade-in" role="listitem">
+                        <div class="counter-number" data-target="98">0%</div>
+                        <div class="counter-label">Client Satisfaction</div>
+                    </div>
+                    
+                    <div class="counter-box fade-in" role="listitem">
+                        <div class="counter-number" data-target="10">0+</div>
+                        <div class="counter-label">Years of Excellence</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Quick Contact Form -->
-    <section class="section bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div class="fade-in">
-                    <h2 class="text-3xl font-bold mb-6">Have a Question?</h2>
-                    <p class="mb-8">Fill out this form and our team will get back to you within 24 hours.</p>
-                    
-                    <form>
-                        <div class="mb-4">
-                            <input type="text" class="w-full form-control" placeholder="Your Name">
-                        </div>
-                        <div class="mb-4">
-                            <input type="email" class="w-full form-control" placeholder="Your Email">
-                        </div>
-                        <div class="mb-4">
-                            <input type="tel" class="w-full form-control" placeholder="Your Phone">
-                        </div>
-                        <div class="mb-4">
-                            <select class="w-full form-control">
-                                <option selected disabled>Select Service</option>
-                                <option>Recruitment</option>
-                                <option>Visa Services</option>
-                                <option>HR Consulting</option>
-                                <option>PRO Services</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <textarea rows="4" class="w-full form-control" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1000&q=80" alt="Office" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Us Section -->
-    <section id="about" class="section">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-                
-                <div class="fade-in">
-                    <h2 class="section-title text-3xl font-bold">About Bright World HR Consultancies</h2>
-                    <p class="mb-6">Founded with a vision to transform the HR landscape, Bright World HR Consultancies Co. has grown to become a trusted name in recruitment, staffing, HR consulting, and visa services across the UAE and beyond.</p>
-                    
-                    <p class="mb-6">Our team of experienced professionals brings decades of combined expertise in human resources, recruitment, immigration, and business operations. We understand the unique challenges faced by both employers and job seekers in today's dynamic market.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Our Mission</h3>
-                    <p class="mb-6">To deliver exceptional HR solutions that empower organizations and individuals to achieve their fullest potential through ethical practices, industry expertise, and personalized service.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">Our Values</h3>
-                    <ul class="list-disc pl-5 mb-6">
-                        <li class="mb-2">Excellence in every interaction</li>
-                        <li class="mb-2">Integrity and transparency</li>
-                        <li class="mb-2">Client-centric approach</li>
-                        <li class="mb-2">Innovation and continuous improvement</li>
-                        <li class="mb-2">Diversity and inclusion</li>
-                    </ul>
-                    
-                    <a href="#services" class="btn-primary">Explore Our Services</a>
-                </div>
-            </div>
-            
-            <div class="mt-20">
-                <h3 class="text-2xl font-bold text-center mb-12">Industries We Serve</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+        </section>
+        
+        <!-- Quick Contact Form -->
+        <section class="section bg-gray-50" aria-label="Quick contact form">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                     <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-building"></i></div>
-                        <p>Corporate</p>
-                    </div>
-                    <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-laptop-code"></i></div>
-                        <p>Technology</p>
-                    </div>
-                    <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-hospital"></i></div>
-                        <p>Healthcare</p>
-                    </div>
-                    <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-industry"></i></div>
-                        <p>Manufacturing</p>
-                    </div>
-                    <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-shopping-cart"></i></div>
-                        <p>Retail</p>
-                    </div>
-                    <div class="fade-in">
-                        <div class="text-4xl mb-4"><i class="fas fa-hotel"></i></div>
-                        <p>Hospitality</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Leadership Section -->
-            <div class="mt-20">
-                <h3 class="text-2xl font-bold text-center mb-12">Our Leadership Team</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="team-member fade-in">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
-                        <div class="team-info">
-                            <h4 class="font-bold text-xl">Ahmed Al Mansouri</h4>
-                            <p class="text-gray-600">Founder & CEO</p>
+                        <h2 class="text-3xl font-bold mb-6">Have a Question?</h2>
+                        <p class="mb-8">Fill out this form and our team will get back to you within 24 hours.</p>
+                        
+                        <div class="success-message" id="quick-success">
+                            <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+                            <span>Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</span>
                         </div>
-                    </div>
-                    
-                    <div class="team-member fade-in">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
-                        <div class="team-info">
-                            <h4 class="font-bold text-xl">Priya Sharma</h4>
-                            <p class="text-gray-600">Director of Recruitment</p>
+                        
+                        <div class="error-alert" id="quick-error">
+                            <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i>
+                            <span>Please fill in all required fields correctly.</span>
                         </div>
-                    </div>
-                    
-                    <div class="team-member fade-in">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&h=500&q=80" alt="Team Member" class="w-full h-auto">
-                        <div class="team-info">
-                            <h4 class="font-bold text-xl">Michael Chen</h4>
-                            <p class="text-gray-600">Head of Visa Services</p>
+                        
+                        <div class="progress-bar" id="quick-progress">
+                            <div class="progress-fill" style="width: 0%"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section id="services" class="section bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold text-center">Our Comprehensive Services</h2>
-            <p class="text-center mb-16">Tailored solutions to meet your HR and immigration needs</p>
-            
-            <!-- Recruitment & Staffing -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-                <div class="fade-in order-2 md:order-1">
-                    <h3 class="text-2xl font-bold mb-6">Recruitment & Staffing</h3>
-                    <p class="mb-4">Our expert recruiters connect exceptional talent with leading organizations across industries. We specialize in:</p>
-                    <ul class="list-disc pl-5 mb-6">
-                        <li class="mb-2">Executive Search</li>
-                        <li class="mb-2">Permanent Placement</li>
-                        <li class="mb-2">Contract Staffing</li>
-                        <li class="mb-2">Temporary Solutions</li>
-                        <li class="mb-2">Volume Hiring</li>
-                    </ul>
-                    <p class="mb-6">With our extensive network and industry expertise, we identify candidates who not only match the required skills but also align with your company culture and values.</p>
-                    <a href="#employers" class="btn-primary">Hire Top Talent</a>
-                </div>
-                <div class="fade-in order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Recruitment" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-            </div>
-            
-            <!-- Visa Services -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1557070384-825851c3f4f6?auto=format&fit=crop&w=1000&q=80" alt="Visa Services" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Visit & Employment Visa Consultancy</h3>
-                    <p class="mb-4">Navigate the complex visa process with our expert guidance. Our visa services include:</p>
-                    <ul class="list-disc pl-5 mb-6">
-                        <li class="mb-2">Employment Visa Processing</li>
-                        <li class="mb-2">Visit & Tourist Visas</li>
-                        <li class="mb-2">Family Sponsorship</li>
-                        <li class="mb-2">Investor Visas</li>
-                        <li class="mb-2">Visa Renewals & Cancellations</li>
-                    </ul>
-                    <p class="mb-6">We ensure a smooth, hassle-free visa application process with our thorough understanding of UAE immigration requirements and procedures.</p>
-                    <a href="#contact" class="btn-primary">Get Visa Assistance</a>
-                </div>
-            </div>
-            
-            <!-- HR Consulting -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-                <div class="fade-in order-2 md:order-1">
-                    <h3 class="text-2xl font-bold mb-6">HR & Compliance Solutions</h3>
-                    <p class="mb-4">Transform your HR operations with our comprehensive consulting services:</p>
-                    <ul class="list-disc pl-5 mb-6">
-                        <li class="mb-2">HR Policy Development</li>
-                        <li class="mb-2">Compliance Management</li>
-                        <li class="mb-2">Performance Management Systems</li>
-                        <li class="mb-2">Employee Relations</li>
-                        <li class="mb-2">HR Audits & Assessments</li>
-                    </ul>
-                    <p class="mb-6">Our consultants bring decades of experience to help optimize your human resources function, ensuring compliance while fostering employee engagement and productivity.</p>
-                    <a href="#contact" class="btn-primary">Consult With Experts</a>
-                </div>
-                <div class="fade-in order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="HR Consulting" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-            </div>
-            
-            <!-- PRO Services -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1584942382498-8de23d7fa64e?auto=format&fit=crop&w=1000&q=80" alt="PRO Services" class="w-full h-auto rounded shadow-lg filter grayscale">
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold mb-6">PRO & Document Attestation Services</h3>
-                    <p class="mb-4">Navigate government procedures efficiently with our professional PRO services:</p>
-                    <ul class="list-disc pl-5 mb-6">
-                        <li class="mb-2">Document Authentication & Attestation</li>
-                        <li class="mb-2">Government Transactions</li>
-                        <li class="mb-2">Company Formation Assistance</li>
-                        <li class="mb-2">Trade License Processing</li>
-                        <li class="mb-2">Legal Translation Services</li>
-                    </ul>
-                    <p class="mb-6">Our experienced PRO team handles all government-related procedures, saving you time and ensuring compliance with UAE regulations.</p>
-                    <a href="#contact" class="btn-primary">Request PRO Services</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Job Seekers Section -->
-    <section id="job-seekers" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold text-center">For Job Seekers</h2>
-            <p class="text-center mb-16">Take the next step in your career journey</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold mb-6">How We Help You</h3>
-                    <p class="mb-6">At Bright World HR Consultancies, we're committed to connecting talented professionals with opportunities that match their skills, aspirations, and potential. Our approach is personalized to your unique career goals.</p>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-4">Our Process</h4>
-                        <ul class="list-decimal pl-5 mb-6">
-                            <li class="mb-3">Resume Submission - Upload your CV through our platform</li>
-                            <li class="mb-3">Initial Assessment - Our recruiters review your qualifications</li>
-                            <li class="mb-3">Career Consultation - Discuss your goals and preferences</li>
-                            <li class="mb-3">Interview Preparation - Receive guidance for successful interviews</li>
-                            <li class="mb-3">Job Matching - Get connected with suitable opportunities</li>
-                            <li class="mb-3">Offer Negotiation - Benefit from our expertise in securing the best package</li>
-                            <li class="mb-3">Onboarding Support - Assistance throughout the transition</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-4">Why Choose Us</h4>
-                        <ul class="list-disc pl-5 mb-6">
-                            <li class="mb-2">Access to exclusive job opportunities</li>
-                            <li class="mb-2">Personalized career guidance</li>
-                            <li class="mb-2">Visa and relocation assistance</li>
-                            <li class="mb-2">Long-term career support</li>
-                            <li class="mb-2">Industry insights and market knowledge</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Current Opportunities</h3>
-                    
-                    <div class="job-listing">
-                        <h4 class="text-xl font-bold">Senior HR Manager</h4>
-                        <p class="text-gray-600 mb-2">Dubai, UAE | Full-time</p>
-                        <p class="mb-4">Leading multinational company seeks an experienced HR Manager to oversee all HR functions and develop strategic initiatives.</p>
-                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
-                    </div>
-                    
-                    <div class="job-listing">
-                        <h4 class="text-xl font-bold">Finance Director</h4>
-                        <p class="text-gray-600 mb-2">Abu Dhabi, UAE | Full-time</p>
-                        <p class="mb-4">Established organization looking for a Finance Director to lead financial strategy and operations.</p>
-                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
-                    </div>
-                    
-                    <div class="job-listing">
-                        <h4 class="text-xl font-bold">IT Project Manager</h4>
-                        <p class="text-gray-600 mb-2">Dubai, UAE | Contract</p>
-                        <p class="mb-4">Technology firm seeking an IT Project Manager with experience in implementing enterprise solutions.</p>
-                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
-                    </div>
-                    
-                    <div class="job-listing">
-                        <h4 class="text-xl font-bold">Marketing Specialist</h4>
-                        <p class="text-gray-600 mb-2">Sharjah, UAE | Full-time</p>
-                        <p class="mb-4">Growing company looking for a Marketing Specialist with digital marketing expertise.</p>
-                        <a href="#" class="text-black font-bold hover:underline">View Details →</a>
-                    </div>
-                    
-                    <a href="#" class="btn-primary mt-6">View All Jobs</a>
-                    
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-bold mb-6">Submit Your Resume</h3>
-                        <form>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <input type="text" class="w-full form-control" placeholder="First Name">
-                                </div>
-                                <div>
-                                    <input type="text" class="w-full form-control" placeholder="Last Name">
-                                </div>
+                        
+                        <form id="quick-contact-form" novalidate>
+                            <div class="mb-4">
+                                <label for="quick-name" class="sr-only">Your Name</label>
+                                <input type="text" id="quick-name" name="name" class="form-control" placeholder="Your Name" required aria-describedby="quick-name-error">
+                                <div class="error-message" id="quick-name-error">Please enter your name</div>
                             </div>
                             <div class="mb-4">
-                                <input type="email" class="w-full form-control" placeholder="Email Address">
+                                <label for="quick-email" class="sr-only">Your Email</label>
+                                <input type="email" id="quick-email" name="email" class="form-control" placeholder="Your Email" required aria-describedby="quick-email-error">
+                                <div class="error-message" id="quick-email-error">Please enter a valid email address</div>
                             </div>
                             <div class="mb-4">
-                                <input type="tel" class="w-full form-control" placeholder="Phone Number">
+                                <label for="quick-phone" class="sr-only">Your Phone</label>
+                                <input type="tel" id="quick-phone" name="phone" class="form-control" placeholder="Your Phone" required aria-describedby="quick-phone-error">
+                                <div class="error-message" id="quick-phone-error">Please enter your phone number</div>
                             </div>
                             <div class="mb-4">
-                                <select class="w-full form-control">
-                                    <option selected disabled>Select Job Category</option>
-                                    <option>Finance & Accounting</option>
-                                    <option>Information Technology</option>
-                                    <option>Human Resources</option>
-                                    <option>Marketing & Sales</option>
-                                    <option>Administration</option>
-                                    <option>Operations</option>
-                                    <option>Other</option>
+                                <label for="quick-service" class="sr-only">Select Service</label>
+                                <select id="quick-service" name="service" class="form-control" required aria-describedby="quick-service-error">
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option value="recruitment">Recruitment</option>
+                                    <option value="visa">Visa Services</option>
+                                    <option value="hr">HR Consulting</option>
+                                    <option value="pro">PRO Services</option>
                                 </select>
+                                <div class="error-message" id="quick-service-error">Please select a service</div>
                             </div>
                             <div class="mb-4">
-                                <div class="form-control p-4 flex items-center justify-between cursor-pointer">
-                                    <span>Upload Your Resume</span>
-                                    <i class="fas fa-upload"></i>
-                                </div>
+                                <label for="quick-message" class="sr-only">Your Message</label>
+                                <textarea rows="4" id="quick-message" name="message" class="form-control" placeholder="Your Message" required aria-describedby="quick-message-error"></textarea>
+                                <div class="error-message" id="quick-message-error">Please enter your message</div>
                             </div>
-                            <div class="mb-4">
-                                <textarea rows="4" class="w-full form-control" placeholder="Additional Information"></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary">Submit Application</button>
+                            <button type="submit" class="btn-primary" id="quick-submit-btn">
+                                <div class="loading-spinner"></div>
+                                <span>Send Message</span>
+                            </button>
                         </form>
                     </div>
+                    
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1000&q=80" alt="Professional office environment" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Employers Section -->
-    <section id="employers" class="section bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold text-center">For Employers</h2>
-            <p class="text-center mb-16">Find exceptional talent for your organization</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Employers" class="w-full h-auto rounded shadow-lg filter grayscale">
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="section" aria-label="About our company">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Our professional team working together" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                    </div>
                     
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-bold mb-6">Why Partner With Us</h3>
+                    <div class="fade-in">
+                        <h2 class="section-title text-3xl font-bold">About Bright World HR Consultancies</h2>
+                        <p class="mb-6">Founded with a vision to transform the HR landscape, Bright World HR Consultancies Co. has grown to become a trusted name in recruitment, staffing, HR consulting, and visa services across the UAE and beyond.</p>
+                        
+                        <p class="mb-6">Our team of experienced professionals brings decades of combined expertise in human resources, recruitment, immigration, and business operations. We understand the unique challenges faced by both employers and job seekers in today's dynamic market.</p>
+                        
+                        <h3 class="text-xl font-bold mb-4">Our Mission</h3>
+                        <p class="mb-6">To deliver exceptional HR solutions that empower organizations and individuals to achieve their fullest potential through ethical practices, industry expertise, and personalized service.</p>
+                        
+                        <h3 class="text-xl font-bold mb-4">Our Values</h3>
                         <ul class="list-disc pl-5 mb-6">
-                            <li class="mb-3">Access to a curated pool of pre-screened talent</li>
-                            <li class="mb-3">Industry-specific recruitment expertise</li>
-                            <li class="mb-3">Reduced time-to-hire and recruitment costs</li>
-                            <li class="mb-3">Comprehensive visa and PRO service support</li>
-                            <li class="mb-3">Customized HR solutions tailored to your needs</li>
-                            <li class="mb-3">Long-term partnership approach</li>
+                            <li class="mb-2">Excellence in every interaction</li>
+                            <li class="mb-2">Integrity and transparency</li>
+                            <li class="mb-2">Client-centric approach</li>
+                            <li class="mb-2">Innovation and continuous improvement</li>
+                            <li class="mb-2">Diversity and inclusion</li>
                         </ul>
+                        
+                        <a href="#services" class="btn-primary">Explore Our Services</a>
                     </div>
                 </div>
                 
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Request Talent</h3>
-                    <p class="mb-8">Tell us about your hiring needs, and our recruitment specialists will help you find the perfect candidates for your organization.</p>
-                    
-                    <form>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <input type="text" class="w-full form-control" placeholder="Company Name">
-                            </div>
-                            <div>
-                                <input type="text" class="w-full form-control" placeholder="Your Name">
-                            </div>
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold text-center mb-12">Industries We Serve</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center" role="list">
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-building"></i></div>
+                            <p>Corporate</p>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <input type="email" class="w-full form-control" placeholder="Email Address">
-                            </div>
-                            <div>
-                                <input type="tel" class="w-full form-control" placeholder="Phone Number">
-                            </div>
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-laptop-code"></i></div>
+                            <p>Technology</p>
                         </div>
-                        <div class="mb-4">
-                            <input type="text" class="w-full form-control" placeholder="Position Title">
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-hospital"></i></div>
+                            <p>Healthcare</p>
                         </div>
-                        <div class="mb-4">
-                            <select class="w-full form-control">
-                                <option selected disabled>Number of Positions</option>
-                                <option>1</option>
-                                <option>2-5</option>
-                                <option>6-10</option>
-                                <option>11-20</option>
-                                <option>20+</option>
-                            </select>
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-industry"></i></div>
+                            <p>Manufacturing</p>
                         </div>
-                        <div class="mb-4">
-                            <select class="w-full form-control">
-                                <option selected disabled>Employment Type</option>
-                                <option>Permanent</option>
-                                <option>Contract</option>
-                                <option>Temporary</option>
-                                <option>Project-based</option>
-                            </select>
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-shopping-cart"></i></div>
+                            <p>Retail</p>
                         </div>
-                        <div class="mb-4">
-                            <textarea rows="4" class="w-full form-control" placeholder="Job Description & Requirements"></textarea>
+                        <div class="fade-in" role="listitem">
+                            <div class="text-4xl mb-4" aria-hidden="true"><i class="fas fa-hotel"></i></div>
+                            <p>Hospitality</p>
                         </div>
-                        <div class="mb-4">
-                            <div class="form-control p-4 flex items-center justify-between cursor-pointer">
-                                <span>Upload Job Description (optional)</span>
-                                <i class="fas fa-upload"></i>
+                    </div>
+                </div>
+                
+                <!-- Leadership Section -->
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold text-center mb-12">Our Leadership Team</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+                        <div class="team-member fade-in" role="listitem">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&h=500&q=80" alt="Ahmed Al Mansouri, Founder & CEO" loading="lazy">
+                            <div class="team-info">
+                                <h4 class="font-bold text-xl">Ahmed Al Mansouri</h4>
+                                <p class="text-gray-600">Founder & CEO</p>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary">Submit Request</button>
-                    </form>
-                    
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-bold mb-6">Our Recruitment Process</h3>
-                        <ol class="list-decimal pl-5">
-                            <li class="mb-3"><strong>Consultation:</strong> Understanding your requirements and company culture</li>
-                            <li class="mb-3"><strong>Sourcing:</strong> Leveraging our network to identify qualified candidates</li>
-                            <li class="mb-3"><strong>Screening:</strong> Thorough evaluation of candidates' skills and experience</li>
-                            <li class="mb-3"><strong>Presentation:</strong> Shortlisting and presenting the best matches</li>
-                            <li class="mb-3"><strong>Selection:</strong> Supporting the interview and decision process</li>
-                            <li class="mb-3"><strong>Onboarding:</strong> Assisting with visa, relocation, and integration</li>
-                            <li class="mb-3"><strong>Follow-up:</strong> Ensuring satisfaction and addressing any concerns</li>
-                        </ol>
+                        
+                        <div class="team-member fade-in" role="listitem">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&h=500&q=80" alt="Priya Sharma, Director of Recruitment" loading="lazy">
+                            <div class="team-info">
+                                <h4 class="font-bold text-xl">Priya Sharma</h4>
+                                <p class="text-gray-600">Director of Recruitment</p>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member fade-in" role="listitem">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&h=500&q=80" alt="Michael Chen, Head of Visa Services" loading="lazy">
+                            <div class="team-info">
+                                <h4 class="font-bold text-xl">Michael Chen</h4>
+                                <p class="text-gray-600">Head of Visa Services</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold text-center">Contact Us</h2>
-            <p class="text-center mb-16">Get in touch with our team for any inquiries</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="col-span-1 fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                    <div class="mb-6">
-                        <p class="text-xl font-bold mb-2">Address</p>
-                        <p>315, DAR AL WUHEIDA BUILDING, DOHA STREET, DUBAI – UNITED ARAB EMIRATES</p>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="section bg-gray-50" aria-label="Detailed services information">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl font-bold text-center">Our Comprehensive Services</h2>
+                <p class="text-center mb-16">Tailored solutions to meet your HR and immigration needs</p>
+                
+                <!-- Recruitment & Staffing -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                    <div class="fade-in order-2 md:order-1">
+                        <h3 class="text-2xl font-bold mb-6">Recruitment & Staffing</h3>
+                        <p class="mb-4">Our expert recruiters connect exceptional talent with leading organizations across industries. We specialize in:</p>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-2">Executive Search</li>
+                            <li class="mb-2">Permanent Placement</li>
+                            <li class="mb-2">Contract Staffing</li>
+                            <li class="mb-2">Temporary Solutions</li>
+                            <li class="mb-2">Volume Hiring</li>
+                        </ul>
+                        <p class="mb-6">With our extensive network and industry expertise, we identify candidates who not only match the required skills but also align with your company culture and values.</p>
+                        <a href="#employers" class="btn-primary">Hire Top Talent</a>
                     </div>
-                    <div class="mb-6">
-                        <p class="text-xl font-bold mb-2">Phone</p>
-                        <p>0581524558 / 045534985</p>
-                    </div>
-                    <div class="mb-6">
-                        <p class="text-xl font-bold mb-2">Email</p>
-                        <p>arfaxed@brightworldservices.com</p>
-                        <p>info@brightworldservices.com</p>
-                    </div>
-                    <div class="mb-6">
-                        <p class="text-xl font-bold mb-2">Working Hours</p>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        <p>Saturday: 10:00 AM - 2:00 PM</p>
-                    </div>
-                    
-                    <div class="social-icons mt-8">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="fade-in order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Professional recruitment meeting" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
                     </div>
                 </div>
                 
-                <div class="md:col-span-2 fade-in">
-                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
-                    <form>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <input type="text" class="w-full form-control" placeholder="Your Name">
-                            </div>
-                            <div>
-                                <input type="email" class="w-full form-control" placeholder="Your Email">
-                            </div>
+                <!-- Visa Services -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                    <div class="fade-in">
+                        <img src="https://www.immihelp.com/assets/cms/visa-immigration-sample-documents-3.jpg" alt="Visa and immigration documents" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-6">Visit & Employment Visa Consultancy</h3>
+                        <p class="mb-4">Navigate the complex visa process with our expert guidance. Our visa services include:</p>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-2">Employment Visa Processing</li>
+                            <li class="mb-2">Visit & Tourist Visas</li>
+                            <li class="mb-2">Family Sponsorship</li>
+                            <li class="mb-2">Investor Visas</li>
+                            <li class="mb-2">Visa Renewals & Cancellations</li>
+                        </ul>
+                        <p class="mb-6">We ensure a smooth, hassle-free visa application process with our thorough understanding of UAE immigration requirements and procedures.</p>
+                        <a href="#contact" class="btn-primary">Get Visa Assistance</a>
+                    </div>
+                </div>
+                
+                <!-- HR Consulting -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+                    <div class="fade-in order-2 md:order-1">
+                        <h3 class="text-2xl font-bold mb-6">HR & Compliance Solutions</h3>
+                        <p class="mb-4">Transform your HR operations with our comprehensive consulting services:</p>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-2">HR Policy Development</li>
+                            <li class="mb-2">Compliance Management</li>
+                            <li class="mb-2">Performance Management Systems</li>
+                            <li class="mb-2">Employee Relations</li>
+                            <li class="mb-2">HR Audits & Assessments</li>
+                        </ul>
+                        <p class="mb-6">Our consultants bring decades of experience to help optimize your human resources function, ensuring compliance while fostering employee engagement and productivity.</p>
+                        <a href="#contact" class="btn-primary">Consult With Experts</a>
+                    </div>
+                    <div class="fade-in order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="HR consulting session" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- PRO Services -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in">
+                        <img src="https://technologyforlearners.com/wp-content/uploads/2023/08/document-handling-min.png" alt="Professional document processing" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-6">PRO & Document Attestation Services</h3>
+                        <p class="mb-4">Navigate government procedures efficiently with our professional PRO services:</p>
+                        <ul class="list-disc pl-5 mb-6">
+                            <li class="mb-2">Document Authentication & Attestation</li>
+                            <li class="mb-2">Government Transactions</li>
+                            <li class="mb-2">Company Formation Assistance</li>
+                            <li class="mb-2">Trade License Processing</li>
+                            <li class="mb-2">Legal Translation Services</li>
+                        </ul>
+                        <p class="mb-6">Our experienced PRO team handles all government-related procedures, saving you time and ensuring compliance with UAE regulations.</p>
+                        <a href="#contact" class="btn-primary">Request PRO Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Job Seekers Section -->
+        <section id="job-seekers" class="section" aria-label="Information and services for job seekers">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl font-bold text-center">For Job Seekers</h2>
+                <p class="text-center mb-16">Take the next step in your career journey</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-6">How We Help You</h3>
+                        <p class="mb-6">At Bright World HR Consultancies, we're committed to connecting talented professionals with opportunities that match their skills, aspirations, and potential. Our approach is personalized to your unique career goals.</p>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold mb-4">Our Process</h4>
+                            <ol class="list-decimal pl-5 mb-6">
+                                <li class="mb-3">Resume Submission - Upload your CV through our platform</li>
+                                <li class="mb-3">Initial Assessment - Our recruiters review your qualifications</li>
+                                <li class="mb-3">Career Consultation - Discuss your goals and preferences</li>
+                                <li class="mb-3">Interview Preparation - Receive guidance for successful interviews</li>
+                                <li class="mb-3">Job Matching - Get connected with suitable opportunities</li>
+                                <li class="mb-3">Offer Negotiation - Benefit from our expertise in securing the best package</li>
+                                <li class="mb-3">Onboarding Support - Assistance throughout the transition</li>
+                            </ol>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <input type="tel" class="w-full form-control" placeholder="Your Phone">
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold mb-4">Why Choose Us</h4>
+                            <ul class="list-disc pl-5 mb-6">
+                                <li class="mb-2">Access to exclusive job opportunities</li>
+                                <li class="mb-2">Personalized career guidance</li>
+                                <li class="mb-2">Visa and relocation assistance</li>
+                                <li class="mb-2">Long-term career support</li>
+                                <li class="mb-2">Industry insights and market knowledge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-6">Current Opportunities</h3>
+                        
+                        <div class="job-listing">
+                            <h4 class="text-xl font-bold">Senior HR Manager</h4>
+                            <p class="text-gray-600 mb-2">Dubai, UAE | Full-time</p>
+                            <p class="mb-4">Leading multinational company seeks an experienced HR Manager to oversee all HR functions and develop strategic initiatives.</p>
+                            <a href="#contact" class="text-black font-bold hover:underline">View Details →</a>
+                        </div>
+                        
+                        <div class="job-listing">
+                            <h4 class="text-xl font-bold">Finance Director</h4>
+                            <p class="text-gray-600 mb-2">Abu Dhabi, UAE | Full-time</p>
+                            <p class="mb-4">Established organization looking for a Finance Director to lead financial strategy and operations.</p>
+                            <a href="#contact" class="text-black font-bold hover:underline">View Details →</a>
+                        </div>
+                        
+                        <div class="job-listing">
+                            <h4 class="text-xl font-bold">IT Project Manager</h4>
+                            <p class="text-gray-600 mb-2">Dubai, UAE | Contract</p>
+                            <p class="mb-4">Technology firm seeking an IT Project Manager with experience in implementing enterprise solutions.</p>
+                            <a href="#contact" class="text-black font-bold hover:underline">View Details →</a>
+                        </div>
+                        
+                        <div class="job-listing">
+                            <h4 class="text-xl font-bold">Marketing Specialist</h4>
+                            <p class="text-gray-600 mb-2">Sharjah, UAE | Full-time</p>
+                            <p class="mb-4">Growing company looking for a Marketing Specialist with digital marketing expertise.</p>
+                            <a href="#contact" class="text-black font-bold hover:underline">View Details →</a>
+                        </div>
+                        
+                        <a href="#contact" class="btn-primary mt-6">View All Jobs</a>
+                        
+                        <div class="mt-12">
+                            <h3 class="text-2xl font-bold mb-6">Submit Your Resume</h3>
+                            
+                            <div class="success-message" id="resume-success">
+                                <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+                                <span>Your resume has been submitted successfully! Our team will review it and contact you soon.</span>
                             </div>
-                            <div>
-                                <select class="w-full form-control">
-                                    <option selected disabled>Subject</option>
-                                    <option>Recruitment Inquiry</option>
-                                    <option>Visa Services</option>
-                                    <option>HR Consulting</option>
-                                    <option>PRO Services</option>
-                                    <option>General Inquiry</option>
+                            
+                            <div class="error-alert" id="resume-error">
+                                <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i>
+                                <span>Please fill in all required fields and upload your resume.</span>
+                            </div>
+                            
+                            <div class="progress-bar" id="resume-progress">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            
+                            <form id="resume-form" novalidate>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="first-name" class="sr-only">First Name</label>
+                                        <input type="text" id="first-name" name="firstName" class="form-control" placeholder="First Name" required aria-describedby="first-name-error">
+                                        <div class="error-message" id="first-name-error">Please enter your first name</div>
+                                    </div>
+                                    <div>
+                                        <label for="last-name" class="sr-only">Last Name</label>
+                                        <input type="text" id="last-name" name="lastName" class="form-control" placeholder="Last Name" required aria-describedby="last-name-error">
+                                        <div class="error-message" id="last-name-error">Please enter your last name</div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="job-email" class="sr-only">Email Address</label>
+                                    <input type="email" id="job-email" name="email" class="form-control" placeholder="Email Address" required aria-describedby="job-email-error">
+                                    <div class="error-message" id="job-email-error">Please enter a valid email address</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="job-phone" class="sr-only">Phone Number</label>
+                                    <input type="tel" id="job-phone" name="phone" class="form-control" placeholder="Phone Number" required aria-describedby="job-phone-error">
+                                    <div class="error-message" id="job-phone-error">Please enter your phone number</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="job-category" class="sr-only">Job Category</label>
+                                    <select id="job-category" name="category" class="form-control" required aria-describedby="job-category-error">
+                                        <option value="" disabled selected>Select Job Category</option>
+                                        <option value="finance">Finance & Accounting</option>
+                                        <option value="it">Information Technology</option>
+                                        <option value="hr">Human Resources</option>
+                                        <option value="marketing">Marketing & Sales</option>
+                                        <option value="admin">Administration</option>
+                                        <option value="operations">Operations</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="error-message" id="job-category-error">Please select a job category</div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="file-upload">
+                                        <input type="file" id="resume-file" name="resume" accept=".pdf,.doc,.docx" required aria-describedby="resume-file-error">
+                                        <label for="resume-file" class="file-upload-label w-full flex items-center justify-between">
+                                            <span id="file-label">Upload Your Resume (PDF, DOC, DOCX)</span>
+                                            <i class="fas fa-upload" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                    <div class="error-message" id="resume-file-error">Please upload your resume</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="additional-info" class="sr-only">Additional Information</label>
+                                    <textarea rows="4" id="additional-info" name="additionalInfo" class="form-control" placeholder="Additional Information (Optional)"></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary" id="resume-submit-btn">
+                                    <div class="loading-spinner"></div>
+                                    <span>Submit Application</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Employers Section -->
+        <section id="employers" class="section bg-gray-50" aria-label="Services and information for employers">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl font-bold text-center">For Employers</h2>
+                <p class="text-center mb-16">Find exceptional talent for your organization</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Diverse group of professionals in a meeting" class="w-full h-auto rounded shadow-lg filter grayscale" loading="lazy">
+                        
+                        <div class="mt-12">
+                            <h3 class="text-2xl font-bold mb-6">Why Partner With Us</h3>
+                            <ul class="list-disc pl-5 mb-6">
+                                <li class="mb-3">Access to a curated pool of pre-screened talent</li>
+                                <li class="mb-3">Industry-specific recruitment expertise</li>
+                                <li class="mb-3">Reduced time-to-hire and recruitment costs</li>
+                                <li class="mb-3">Comprehensive visa and PRO service support</li>
+                                <li class="mb-3">Customized HR solutions tailored to your needs</li>
+                                <li class="mb-3">Long-term partnership approach</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <h3 class="text-2xl font-bold mb-6">Request Talent</h3>
+                        <p class="mb-8">Tell us about your hiring needs, and our recruitment specialists will help you find the perfect candidates for your organization.</p>
+                        
+                        <div class="success-message" id="employer-success">
+                            <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+                            <span>Your talent request has been submitted! Our recruitment team will contact you within 24 hours.</span>
+                        </div>
+                        
+                        <div class="error-alert" id="employer-error">
+                            <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i>
+                            <span>Please fill in all required fields correctly.</span>
+                        </div>
+                        
+                        <div class="progress-bar" id="employer-progress">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        
+                        <form id="employer-form" novalidate>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="company-name" class="sr-only">Company Name</label>
+                                    <input type="text" id="company-name" name="company" class="form-control" placeholder="Company Name" required aria-describedby="company-name-error">
+                                    <div class="error-message" id="company-name-error">Please enter your company name</div>
+                                </div>
+                                <div>
+                                    <label for="contact-name" class="sr-only">Your Name</label>
+                                    <input type="text" id="contact-name" name="contactName" class="form-control" placeholder="Your Name" required aria-describedby="contact-name-error">
+                                    <div class="error-message" id="contact-name-error">Please enter your name</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="employer-email" class="sr-only">Email Address</label>
+                                    <input type="email" id="employer-email" name="email" class="form-control" placeholder="Email Address" required aria-describedby="employer-email-error">
+                                    <div class="error-message" id="employer-email-error">Please enter a valid email address</div>
+                                </div>
+                                <div>
+                                    <label for="employer-phone" class="sr-only">Phone Number</label>
+                                    <input type="tel" id="employer-phone" name="phone" class="form-control" placeholder="Phone Number" required aria-describedby="employer-phone-error">
+                                    <div class="error-message" id="employer-phone-error">Please enter your phone number</div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="position-title" class="sr-only">Position Title</label>
+                                <input type="text" id="position-title" name="position" class="form-control" placeholder="Position Title" required aria-describedby="position-title-error">
+                                <div class="error-message" id="position-title-error">Please enter the position title</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="position-count" class="sr-only">Number of Positions</label>
+                                <select id="position-count" name="positions" class="form-control" required aria-describedby="position-count-error">
+                                    <option value="" disabled selected>Number of Positions</option>
+                                    <option value="1">1</option>
+                                    <option value="2-5">2-5</option>
+                                    <option value="6-10">6-10</option>
+                                    <option value="11-20">11-20</option>
+                                    <option value="20+">20+</option>
                                 </select>
+                                <div class="error-message" id="position-count-error">Please select number of positions</div>
                             </div>
+                            <div class="mb-4">
+                                <label for="employment-type" class="sr-only">Employment Type</label>
+                                <select id="employment-type" name="employmentType" class="form-control" required aria-describedby="employment-type-error">
+                                    <option value="" disabled selected>Employment Type</option>
+                                    <option value="permanent">Permanent</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="temporary">Temporary</option>
+                                    <option value="project">Project-based</option>
+                                </select>
+                                <div class="error-message" id="employment-type-error">Please select employment type</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="job-description" class="sr-only">Job Description & Requirements</label>
+                                <textarea rows="4" id="job-description" name="description" class="form-control" placeholder="Job Description & Requirements" required aria-describedby="job-description-error"></textarea>
+                                <div class="error-message" id="job-description-error">Please provide job description and requirements</div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="file-upload">
+                                    <input type="file" id="job-desc-file" name="jobDescFile" accept=".pdf,.doc,.docx">
+                                    <label for="job-desc-file" class="file-upload-label w-full flex items-center justify-between">
+                                        <span id="job-file-label">Upload Job Description (Optional)</span>
+                                        <i class="fas fa-upload" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary" id="employer-submit-btn">
+                                <div class="loading-spinner"></div>
+                                <span>Submit Request</span>
+                            </button>
+                        </form>
+                        
+                        <div class="mt-12">
+                            <h3 class="text-2xl font-bold mb-6">Our Recruitment Process</h3>
+                            <ol class="list-decimal pl-5">
+                                <li class="mb-3"><strong>Consultation:</strong> Understanding your requirements and company culture</li>
+                                <li class="mb-3"><strong>Sourcing:</strong> Leveraging our network to identify qualified candidates</li>
+                                <li class="mb-3"><strong>Screening:</strong> Thorough evaluation of candidates' skills and experience</li>
+                                <li class="mb-3"><strong>Presentation:</strong> Shortlisting and presenting the best matches</li>
+                                <li class="mb-3"><strong>Selection:</strong> Supporting the interview and decision process</li>
+                                <li class="mb-3"><strong>Onboarding:</strong> Assisting with visa, relocation, and integration</li>
+                                <li class="mb-3"><strong>Follow-up:</strong> Ensuring satisfaction and addressing any concerns</li>
+                            </ol>
                         </div>
-                        <div class="mb-4">
-                            <textarea rows="6" class="w-full form-control" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                    
-                    <div class="mt-12 h-80">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.775749767011!2d55.31897257506045!3d25.25729477717329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d31d0c22caf%3A0x9dd6ef4e89f4a397!2sDar%20Al%20Wuheida%20Building%2C%20315%20-%20Doha%20St%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1689341587593!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="section" aria-label="Contact information and form">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl font-bold text-center">Contact Us</h2>
+                <p class="text-center mb-16">Get in touch with our team for any inquiries</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="col-span-1 fade-in">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="mb-6">
+                            <p class="text-xl font-bold mb-2">Address</p>
+                            <p>315, DAR AL WUHEIDA BUILDING, DOHA STREET, DUBAI – UNITED ARAB EMIRATES</p>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-xl font-bold mb-2">Phone</p>
+                            <p><a href="tel:+971581524558" class="text-black hover:underline">0581524558</a> / <a href="tel:+97145534985" class="text-black hover:underline">045534985</a></p>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-xl font-bold mb-2">Email</p>
+                            <p><a href="mailto:arfaxed@brightworldservices.com" class="text-black hover:underline">arfaxed@brightworldservices.com</a></p>
+                            <p><a href="mailto:info@brightworldservices.com" class="text-black hover:underline">info@brightworldservices.com</a></p>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-xl font-bold mb-2">Working Hours</p>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 2:00 PM</p>
+                        </div>
+                        
+                        <div class="social-icons mt-8">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 fade-in">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        
+                        <div class="success-message" id="contact-success">
+                            <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+                            <span>Thank you for your message! We'll get back to you within 24 hours.</span>
+                        </div>
+                        
+                        <div class="error-alert" id="contact-error">
+                            <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i>
+                            <span>Please fill in all required fields correctly.</span>
+                        </div>
+                        
+                        <div class="progress-bar" id="contact-progress">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        
+                        <form id="contact-form" novalidate>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="contact-user-name" class="sr-only">Your Name</label>
+                                    <input type="text" id="contact-user-name" name="name" class="form-control" placeholder="Your Name" required aria-describedby="contact-user-name-error">
+                                    <div class="error-message" id="contact-user-name-error">Please enter your name</div>
+                                </div>
+                                <div>
+                                    <label for="contact-user-email" class="sr-only">Your Email</label>
+                                    <input type="email" id="contact-user-email" name="email" class="form-control" placeholder="Your Email" required aria-describedby="contact-user-email-error">
+                                    <div class="error-message" id="contact-user-email-error">Please enter a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="contact-user-phone" class="sr-only">Your Phone</label>
+                                    <input type="tel" id="contact-user-phone" name="phone" class="form-control" placeholder="Your Phone" required aria-describedby="contact-user-phone-error">
+                                    <div class="error-message" id="contact-user-phone-error">Please enter your phone number</div>
+                                </div>
+                                <div>
+                                    <label for="contact-subject" class="sr-only">Subject</label>
+                                    <select id="contact-subject" name="subject" class="form-control" required aria-describedby="contact-subject-error">
+                                        <option value="" disabled selected>Subject</option>
+                                        <option value="recruitment">Recruitment Inquiry</option>
+                                        <option value="visa">Visa Services</option>
+                                        <option value="hr">HR Consulting</option>
+                                        <option value="pro">PRO Services</option>
+                                        <option value="general">General Inquiry</option>
+                                    </select>
+                                    <div class="error-message" id="contact-subject-error">Please select a subject</div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="contact-message" class="sr-only">Your Message</label>
+                                <textarea rows="6" id="contact-message" name="message" class="form-control" placeholder="Your Message" required aria-describedby="contact-message-error"></textarea>
+                                <div class="error-message" id="contact-message-error">Please enter your message</div>
+                            </div>
+                            <button type="submit" class="btn-primary" id="contact-submit-btn">
+                                <div class="loading-spinner"></div>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                        
+                        <div class="mt-12 h-80">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.775749767011!2d55.31897257506045!3d25.25729477717329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d31d0c22caf%3A0x9dd6ef4e89f4a397!2sDar%20Al%20Wuheida%20Building%2C%20315%20-%20Doha%20St%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1689341587593!5m2!1sen!2sus" width="100%" height="100%" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bright World HR Consultancies Location Map"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     
     <!-- Footer Section -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
                 <div>
                     <div class="flex items-center mb-6">
-                        <img src="https://tinyurl.com/frfphnpe" alt="Bright World HR Consultancies" class="h-16">
+                        <img src="https://i.ibb.co/m58mFVKd/DR-PEN-A11-52.png" alt="Bright World HR Consultancies Logo" class="h-16" loading="lazy">
                         <span class="ml-3 text-white font-bold">Bright World HR Consultancies Co.</span>
                     </div>
                     <p class="mb-6">Empowering global careers and providing trusted HR solutions since 2012. Your partner for recruitment, visa services, and HR consulting.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
                 <div>
                     <h4 class="text-white text-xl font-bold mb-6">Quick Links</h4>
-                    <ul class="footer-links">
+                    <ul class="footer-links" role="list">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
@@ -1041,7 +1485,7 @@
                 
                 <div>
                     <h4 class="text-white text-xl font-bold mb-6">Our Services</h4>
-                    <ul class="footer-links">
+                    <ul class="footer-links" role="list">
                         <li><a href="#services">Recruitment & Staffing</a></li>
                         <li><a href="#services">Visa Consultancy</a></li>
                         <li><a href="#services">HR Solutions</a></li>
@@ -1053,11 +1497,15 @@
                 <div>
                     <h4 class="text-white text-xl font-bold mb-6">Newsletter</h4>
                     <p class="mb-4">Subscribe to receive updates on job opportunities and visa regulations.</p>
-                    <form>
+                    <form id="newsletter-form">
                         <div class="mb-4">
-                            <input type="email" class="w-full form-control bg-white bg-opacity-10 border-0 text-white" placeholder="Your Email">
+                            <label for="newsletter-email" class="sr-only">Newsletter Email</label>
+                            <input type="email" id="newsletter-email" name="email" class="w-full form-control bg-white bg-opacity-10 border-0 text-white placeholder-gray-300" placeholder="Your Email" required>
                         </div>
-                        <button type="submit" class="btn-outline text-white border-white">Subscribe</button>
+                        <button type="submit" class="btn-outline text-white border-white" id="newsletter-btn">
+                            <div class="loading-spinner border-white border-t-transparent"></div>
+                            <span>Subscribe</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1069,102 +1517,558 @@
     </footer>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/971581524558" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/971581524558" class="whatsapp-btn" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
     
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    
     <script>
-        // Navigation active state
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-link');
+        // Utility functions
+        const utils = {
+            validateEmail: (email) => {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            },
+            
+            validatePhone: (phone) => {
+                const re = /^[\+]?[1-9][\d]{0,15}$/;
+                return re.test(phone.replace(/\s/g, ''));
+            },
+            
+            showElement: (element) => {
+                if (element) element.style.display = 'flex';
+            },
+            
+            hideElement: (element) => {
+                if (element) element.style.display = 'none';
+            },
+            
+            addError: (input, errorElement, message) => {
+                input.classList.add('error');
+                input.classList.remove('success');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block';
+                }
+            },
+            
+            addSuccess: (input, errorElement) => {
+                input.classList.add('success');
+                input.classList.remove('error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            },
+            
+            clearValidation: (form) => {
+                const inputs = form.querySelectorAll('.form-control');
+                const errors = form.querySelectorAll('.error-message');
+                
+                inputs.forEach(input => {
+                    input.classList.remove('error', 'success');
+                });
+                
+                errors.forEach(error => {
+                    error.style.display = 'none';
+                });
+            }
+        };
         
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
+        // Form validation and submission
+        class FormHandler {
+            constructor(formId, successId, errorId, progressId) {
+                this.form = document.getElementById(formId);
+                this.successElement = document.getElementById(successId);
+                this.errorElement = document.getElementById(errorId);
+                this.progressElement = document.getElementById(progressId);
+                this.submitBtn = this.form?.querySelector('button[type="submit"]');
+                this.spinner = this.submitBtn?.querySelector('.loading-spinner');
+                this.submitText = this.submitBtn?.querySelector('span');
+                
+                if (this.form) {
+                    this.init();
                 }
-            });
+            }
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
+            init() {
+                this.form.addEventListener('submit', this.handleSubmit.bind(this));
+                
+                // Real-time validation
+                const inputs = this.form.querySelectorAll('.form-control');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => {
+                        if (input.classList.contains('error')) {
+                            this.validateField(input);
+                        }
+                    });
+                });
+            }
+            
+            validateField(input) {
+                const errorElement = document.getElementById(input.getAttribute('aria-describedby'));
+                const value = input.value.trim();
+                
+                if (input.hasAttribute('required') && !value) {
+                    utils.addError(input, errorElement, 'This field is required');
+                    return false;
                 }
-            });
+                
+                if (input.type === 'email' && value && !utils.validateEmail(value)) {
+                    utils.addError(input, errorElement, 'Please enter a valid email address');
+                    return false;
+                }
+                
+                if (input.type === 'tel' && value && !utils.validatePhone(value)) {
+                    utils.addError(input, errorElement, 'Please enter a valid phone number');
+                    return false;
+                }
+                
+                if (input.type === 'file' && input.hasAttribute('required')) {
+                    if (!input.files.length) {
+                        utils.addError(input, errorElement, 'Please select a file');
+                        return false;
+                    }
+                    
+                    const file = input.files[0];
+                    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    const maxSize = 5 * 1024 * 1024; // 5MB
+                    
+                    if (!allowedTypes.includes(file.type)) {
+                        utils.addError(input, errorElement, 'Please upload a PDF, DOC, or DOCX file');
+                        return false;
+                    }
+                    
+                    if (file.size > maxSize) {
+                        utils.addError(input, errorElement, 'File size must be less than 5MB');
+                        return false;
+                    }
+                }
+                
+                utils.addSuccess(input, errorElement);
+                return true;
+            }
             
-            // Sticky navbar
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            validateForm() {
+                const inputs = this.form.querySelectorAll('.form-control[required]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!this.validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                return isValid;
+            }
+            
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                utils.hideElement(this.successElement);
+                utils.hideElement(this.errorElement);
+                
+                if (!this.validateForm()) {
+                    utils.showElement(this.errorElement);
+                    return;
+                }
+                
+                this.setLoading(true);
+                utils.showElement(this.progressElement);
+                
+                try {
+                    // Simulate form submission
+                    await this.simulateSubmission();
+                    
+                    utils.showElement(this.successElement);
+                    this.form.reset();
+                    utils.clearValidation(this.form);
+                    
+                    // Reset file labels
+                    const fileLabels = this.form.querySelectorAll('.file-upload-label span');
+                    fileLabels.forEach(label => {
+                        if (label.id === 'file-label') {
+                            label.textContent = 'Upload Your Resume (PDF, DOC, DOCX)';
+                        } else if (label.id === 'job-file-label') {
+                            label.textContent = 'Upload Job Description (Optional)';
+                        }
+                    });
+                    
+                } catch (error) {
+                    utils.showElement(this.errorElement);
+                } finally {
+                    this.setLoading(false);
+                    utils.hideElement(this.progressElement);
+                }
+            }
+            
+            async simulateSubmission() {
+                return new Promise((resolve) => {
+                    let progress = 0;
+                    const progressFill = this.progressElement?.querySelector('.progress-fill');
+                    
+                    const interval = setInterval(() => {
+                        progress += Math.random() * 30;
+                        if (progress > 100) progress = 100;
+                        
+                        if (progressFill) {
+                            progressFill.style.width = progress + '%';
+                        }
+                        
+                        if (progress >= 100) {
+                            clearInterval(interval);
+                            setTimeout(resolve, 500);
+                        }
+                    }, 100);
+                });
+            }
+            
+            setLoading(loading) {
+                if (this.submitBtn) {
+                    this.submitBtn.disabled = loading;
+                    
+                    if (loading) {
+                        utils.showElement(this.spinner);
+                        if (this.submitText) this.submitText.textContent = 'Sending...';
+                    } else {
+                        utils.hideElement(this.spinner);
+                        if (this.submitText) {
+                            const originalText = this.form.id.includes('quick') ? 'Send Message' :
+                                               this.form.id.includes('resume') ? 'Submit Application' :
+                                               this.form.id.includes('employer') ? 'Submit Request' :
+                                               this.form.id.includes('newsletter') ? 'Subscribe' :
+                                               'Send Message';
+                            this.submitText.textContent = originalText;
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Initialize form handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            new FormHandler('quick-contact-form', 'quick-success', 'quick-error', 'quick-progress');
+            new FormHandler('resume-form', 'resume-success', 'resume-error', 'resume-progress');
+            new FormHandler('employer-form', 'employer-success', 'employer-error', 'employer-progress');
+            new FormHandler('contact-form', 'contact-success', 'contact-error', 'contact-progress');
+            
+            // Newsletter form (simpler)
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const btn = document.getElementById('newsletter-btn');
+                    const spinner = btn?.querySelector('.loading-spinner');
+                    const text = btn?.querySelector('span');
+                    
+                    if (btn) btn.disabled = true;
+                    if (spinner) spinner.style.display = 'block';
+                    if (text) text.textContent = 'Subscribing...';
+                    
+                    // Simulate submission
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                    
+                    if (btn) btn.disabled = false;
+                    if (spinner) spinner.style.display = 'none';
+                    if (text) text.textContent = 'Subscribe';
+                });
             }
         });
         
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
+        // File upload handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInputs = document.querySelectorAll('input[type="file"]');
+            
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const label = this.parentNode.querySelector('label span');
+                    if (this.files.length > 0) {
+                        const fileName = this.files[0].name;
+                        if (label) {
+                            label.textContent = fileName.length > 30 ? fileName.substring(0, 30) + '...' : fileName;
+                        }
+                    }
+                });
+            });
         });
         
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            // Smooth scrolling
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('open');
+                    }
+                });
+            });
+            
+            // Active navigation highlighting
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollPosition = window.pageYOffset + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Navbar scroll effect
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar?.classList.add('scrolled');
+                } else {
+                    navbar?.classList.remove('scrolled');
+                }
+                
+                // Scroll to top button
+                const scrollBtn = document.querySelector('.scroll-to-top');
+                if (window.scrollY > 300) {
+                    scrollBtn?.classList.add('visible');
+                } else {
+                    scrollBtn?.classList.remove('visible');
+                }
+            });
         });
         
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            function openMobileMenu() {
+                mobileMenu?.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu?.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            
+            menuToggle?.addEventListener('click', openMobileMenu);
+            menuToggle?.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openMobileMenu();
+                }
+            });
+            
+            mobileMenuClose?.addEventListener('click', closeMobileMenu);
+            mobileMenuClose?.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    closeMobileMenu();
+                }
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) {
+                    closeMobileMenu();
+                }
+            });
+        });
+        
+        // Scroll to top functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            
+            scrollBtn?.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
         
         // Fade-in animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeIn = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeIn);
-        window.addEventListener('load', fadeIn);
-        
-        // Form submission (prevent default for demo)
-        const forms = document.querySelectorAll('form');
-        forms.forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const formElements = form.elements;
-                let isValid = true;
-                
-                for (let i = 0; i < formElements.length; i++) {
-                    if (formElements[i].type !== 'submit' && formElements[i].value === '') {
-                        isValid = false;
-                        formElements[i].classList.add('border-red-500');
-                    } else {
-                        formElements[i].classList.remove('border-red-500');
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
                     }
-                }
-                
-                if (isValid) {
-                    alert('Form submitted successfully!');
-                    form.reset();
-                } else {
-                    alert('Please fill in all required fields.');
+                });
+            }, observerOptions);
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+        
+        // Counter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter-number');
+            const counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const increment = target / 100;
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            
+                            if (counter.textContent.includes('%')) {
+                                counter.textContent = Math.ceil(current) + '%';
+                            } else {
+                                counter.textContent = Math.ceil(current) + '+';
+                            }
+                        }, 20);
+                        
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+        });
+        
+        // Enhanced accessibility
+        document.addEventListener('DOMContentLoaded', function() {
+            // Skip link functionality
+            const skipLink = document.querySelector('a[href="#main-content"]');
+            skipLink?.addEventListener('click', function(e) {
+                e.preventDefault();
+                const mainContent = document.getElementById('main-content');
+                mainContent?.focus();
+                mainContent?.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Keyboard navigation for menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle?.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
                 }
             });
+            
+            // Focus management for mobile menu
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNavLinks = mobileMenu?.querySelectorAll('.mobile-nav-link');
+            const mobileMenuClose = mobileMenu?.querySelector('.mobile-menu-close');
+            
+            if (mobileMenu) {
+                mobileMenu.addEventListener('keydown', function(e) {
+                    if (e.key === 'Tab') {
+                        const focusableElements = [mobileMenuClose, ...mobileNavLinks];
+                        const firstElement = focusableElements[0];
+                        const lastElement = focusableElements[focusableElements.length - 1];
+                        
+                        if (e.shiftKey) {
+                            if (document.activeElement === firstElement) {
+                                e.preventDefault();
+                                lastElement?.focus();
+                            }
+                        } else {
+                            if (document.activeElement === lastElement) {
+                                e.preventDefault();
+                                firstElement?.focus();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        
+        // Performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy load images
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.src;
+                            img.classList.remove('lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => imageObserver.observe(img));
+            }
+            
+            // Preload critical resources
+            const criticalImages = [
+                'https://tinyurl.com/frfphnpe',
+                'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+        });
+        
+        // Error handling and logging
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript Error:', e.error);
+        });
+        
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled Promise Rejection:', e.reason);
         });
     </script>
 </body>
